@@ -51,6 +51,7 @@ public class SwipeDetection : MonoBehaviour
 
     private void DetectSwipe()
     {
+        //for swipe
         if (Vector3.Distance(startPosition, endPosition) >= minimumDistance &&
             (endTime-startTime) <= maximumTime)
         {
@@ -58,6 +59,10 @@ public class SwipeDetection : MonoBehaviour
             Vector3 direction = endPosition - startPosition;
             Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
             SwipeDirection(direction2D);
+        }
+        else
+        {
+            Debug.Log("TAPPED");
         }
     }
     private void SwipeDirection(Vector2 direction)
