@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -72,7 +73,8 @@ public class playerMovement : MonoBehaviour
         else
         {
             Debug.Log("SCREEN TAPPED");
-            gameObject.transform.position = new Vector3(0, 0, 0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+           
         }
     }
     private void SwipeDirection(Vector2 direction)
