@@ -19,9 +19,12 @@ public class SwipeDetection : MonoBehaviour
     private Vector2 endPosition;
     private float endTime;
 
+    public GameObject player;
+
     private void Awake()
     {
         inputManager = InputManager.Instance;
+        
     }
 
     private void OnEnable()
@@ -71,6 +74,7 @@ public class SwipeDetection : MonoBehaviour
         if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
             Debug.Log("SWIPED UP");
+            
         }
         else if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
