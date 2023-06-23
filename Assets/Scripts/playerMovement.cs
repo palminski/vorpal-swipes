@@ -73,7 +73,7 @@ public class playerMovement : MonoBehaviour
         else
         {
             Debug.Log("SCREEN TAPPED");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
            
         }
     }
