@@ -67,6 +67,11 @@ public class playerMovement : MonoBehaviour
     #endregion
     //===================================================================
 
+    private void FixedUpdate()
+    {
+        //
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         //
@@ -74,7 +79,6 @@ public class playerMovement : MonoBehaviour
 
     private void Leap(Vector2 direction)
     {
-        Debug.Log(direction);
         Rigidbody.velocity = direction;
     }
 }

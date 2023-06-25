@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 2004418009997518361}
   - component: {fileID: 5159568041441559702}
   - component: {fileID: 7940252986394688604}
-  - component: {fileID: 2745093083698176111}
+  - component: {fileID: 8210239911802274863}
+  - component: {fileID: 5272034552447570890}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -29,12 +30,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3913161432899329263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.06, y: -9.32, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.4762107}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &483502401751972743
 SpriteRenderer:
@@ -172,12 +173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de48b5e8bec69fe409083ac67ee554c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumDistance: 0.2
-  maximumTime: 1
+  swipeSensitivity: 10
   directionThreshold: 0.9
-  jumpForce: 2000
+  jumpForce: 45
   Rigidbody: {fileID: 5159568041441559702}
---- !u!114 &2745093083698176111
+--- !u!114 &8210239911802274863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,6 +186,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 3913161432899329263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8821b026b634134daf97bdae8ca7f8b, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a3ec0384873a24d932f0dc5621a7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sinkSpeed: 0.005
+--- !u!114 &5272034552447570890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913161432899329263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 985904b603f11e940b90ed808dbed8a4, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Touch
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
