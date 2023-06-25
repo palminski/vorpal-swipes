@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Sink : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
-    void Start()
+
+    ManageSinkSpeed manageSinkSpeed;
+    GameObject controller;
+
+    void Awake()
     {
-        
+        controller = GameObject.FindWithTag("Controller");
+        if (controller != null)
+        {
+            manageSinkSpeed = controller.GetComponent<ManageSinkSpeed>();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void FixedUpdate()
     {
-        gameObject.transform.position -= new Vector3(0, GlobalVariables.sinkSpeed, 0);
+        gameObject.transform.position -= new Vector3(0, manageSinkSpeed.sinkSpeed, 0);
     }
 }

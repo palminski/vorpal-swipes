@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 449329869}
   m_Layer: 0
   m_Name: Controller
-  m_TagString: Untagged
+  m_TagString: Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c160e649493dd44083073dd3ad7ea00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingSinkSpeed: 0.1
 --- !u!114 &449329869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,8 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953b4e430c50b6a4b8b930dc75ca2fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sinkSpeedIncrease: 0.0021
-  maxSinkSpeed: 0.429
+  startingSinkSpeed: 0.01
+  sinkSpeedIncrease: 0.0004
+  maxSinkSpeed: 0.327
+  sinkSpeed: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,20 +4,37 @@ using UnityEngine;
 
 public class ManageSinkSpeed : MonoBehaviour
 {
+    [SerializeField]
+    private float startingSinkSpeed = 0.5f;
     [SerializeField, Range(0, 0.1f)]
     private float sinkSpeedIncrease;
     [SerializeField, Range(0, 0.5f)]
     private float maxSinkSpeed;
+
+    
+
+    public float sinkSpeed;
+
+    private void Awake()
+    {
+        sinkSpeed = startingSinkSpeed;
+    }
+
     private void FixedUpdate()
     {
-        if (GlobalVariables.sinkSpeed < maxSinkSpeed)
+        if (sinkSpeed < maxSinkSpeed)
         {
-            GlobalVariables.sinkSpeed += sinkSpeedIncrease;
+            UpdateSinkSpeed(sinkSpeedIncrease);
         }
         else
         {
-            GlobalVariables.sinkSpeed = maxSinkSpeed;
+            sinkSpeed = maxSinkSpeed;
         }
         
+    }
+
+    public void UpdateSinkSpeed(float speedToAdd)
+    {
+        sinkSpeed += speedToAdd;
     }
 }
