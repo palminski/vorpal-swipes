@@ -9,12 +9,12 @@ public class SpawnLevel : MonoBehaviour
     private void Start()
     {
         Debug.Log(levels.Length);
-        SpawnNextLevel();
+        SpawnNextLevel(0);
     }
 
-    public void SpawnNextLevel()
+    public void SpawnNextLevel(float offset)
     {
-        Debug.Log(Random.Range(0, levels.Length));
-        Instantiate(levels[Random.Range(0, levels.Length)], transform.position, transform.rotation);
+        Vector3 spawnLocation = new Vector3(transform.position.x, transform.position.y + offset, transform.position.z);
+        Instantiate(levels[Random.Range(0, levels.Length)], spawnLocation, transform.rotation);
     }
 }

@@ -40,7 +40,7 @@ public class playerMovement : MonoBehaviour
     private void Swipe( InputAction.CallbackContext context)
     {
         Vector2 swipeVector = context.ReadValue<Vector2>();
-        Debug.Log(swipeVector.magnitude);
+
         if (swipeVector.magnitude >= swipeSensitivity)
         {
             Vector2 swipeDirection = swipeVector.normalized;

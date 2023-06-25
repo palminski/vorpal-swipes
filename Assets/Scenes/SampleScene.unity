@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingSinkSpeed: 0.01
   sinkSpeedIncrease: 0.0004
-  maxSinkSpeed: 0.327
+  maxSinkSpeed: 0.198
   sinkSpeed: 0
 --- !u!1 &519420028
 GameObject:
