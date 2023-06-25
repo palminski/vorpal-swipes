@@ -6,44 +6,24 @@
             "id": "f8adbb0e-5a5d-4690-bd4c-a179f7ec37c7",
             "actions": [
                 {
-                    "name": "PrimaryContact",
-                    "type": "PassThrough",
-                    "id": "058c3396-4df3-4901-a984-8a98eb8e223a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "PrimaryPosition",
-                    "type": "PassThrough",
-                    "id": "7ca49c38-c1f9-4662-b06b-afd2bed552ae",
-                    "expectedControlType": "Vector2",
+                    "name": "Swipe",
+                    "type": "Value",
+                    "id": "f2816eef-7262-45fa-81a3-9fb7ee1dbec5",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "926135c3-ec19-4e1a-8ee2-46f68b941bdb",
-                    "path": "<Touchscreen>/primaryTouch/press",
+                    "id": "c45c3947-a2f5-48d1-a819-727b62fa21df",
+                    "path": "<Touchscreen>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PrimaryContact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "552b73a0-41c8-4f6c-82c3-8ccc74c8d68b",
-                    "path": "<Touchscreen>/primaryTouch/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PrimaryPosition",
+                    "action": "Swipe",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
