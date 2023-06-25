@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &483502401751972743
 SpriteRenderer:
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeSensitivity: 10
   directionThreshold: 0.9
-  jumpForce: 45
+  jumpForce: 35
   Rigidbody: {fileID: 5159568041441559702}
 --- !u!114 &8210239911802274863
 MonoBehaviour:
