@@ -662,7 +662,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7940252986394688604, guid: 516cc609e85b2064e8cadf31c7430f32, type: 3}
+      propertyPath: jumpForce
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940252986394688604, guid: 516cc609e85b2064e8cadf31c7430f32, type: 3}
+      propertyPath: swipeSensitivity
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2745093083698176111, guid: 516cc609e85b2064e8cadf31c7430f32, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

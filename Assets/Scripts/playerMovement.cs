@@ -47,22 +47,18 @@ public class playerMovement : MonoBehaviour
 
             if (Vector2.Dot(Vector2.up, swipeDirection) > directionThreshold)
             {
-                Debug.Log("SWIPED UP ");
                 Leap(new Vector2(0, jumpForce));
             }
             else if (Vector2.Dot(Vector2.down, swipeDirection) > directionThreshold)
             {
-                Debug.Log("SWIPED Down");
                 Leap(new Vector2(0, -jumpForce));
             }
             else if (Vector2.Dot(Vector2.right, swipeDirection) > directionThreshold)
             {
-                Debug.Log("SWIPED Right");
                 Leap(new Vector2(jumpForce,0));
             }
             else if (Vector2.Dot(Vector2.left, swipeDirection) > directionThreshold)
             {
-                Debug.Log("SWIPED Left");
                 Leap(new Vector2(-jumpForce,0));
             }
         }
@@ -71,14 +67,18 @@ public class playerMovement : MonoBehaviour
     #endregion
     //===================================================================
 
+    private void FixedUpdate()
+    {
+        //
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Hit wall");
+        //
     }
 
     private void Leap(Vector2 direction)
     {
-            Rigidbody.velocity = still;
-            Rigidbody.AddForce(direction);
+        Rigidbody.velocity = direction;
     }
 }
