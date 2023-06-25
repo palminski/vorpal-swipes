@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - LevelSpawner
+  - Level
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Entities
   - Water
   - UI
-  - 
+  - Walls
   - 
   - 
   - 

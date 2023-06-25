@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DeleteLevel : MonoBehaviour
 {
-    public GameObject levelSpawner;
+    public SpawnLevel spawnLevel;
+    
 
     // Update is called once per frame
     void Update()
@@ -12,7 +13,7 @@ public class DeleteLevel : MonoBehaviour
         if (transform.position.y <= -32)
         {
             
-            levelSpawner.GetComponent<SpawnLevel>().SpawnNextLevel();
+            spawnLevel.SpawnNextLevel();
             Destroy(gameObject);
         }
     }
