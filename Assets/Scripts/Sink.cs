@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Sink : MonoBehaviour
 {
-    public float sinkSpeed = 0.05f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        sinkSpeed = 0.1f;
+        
     }
 
     // Update is called once per frame
@@ -18,6 +18,6 @@ public class Sink : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        gameObject.transform.position -= new Vector3(0, sinkSpeed, 0);
+        gameObject.transform.position -= new Vector3(0, GlobalVariables.sinkSpeed, 0);
     }
 }
