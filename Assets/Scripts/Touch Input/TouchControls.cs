@@ -28,44 +28,24 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
             ""id"": ""f8adbb0e-5a5d-4690-bd4c-a179f7ec37c7"",
             ""actions"": [
                 {
-                    ""name"": ""PrimaryContact"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""058c3396-4df3-4901-a984-8a98eb8e223a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""PrimaryPosition"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""7ca49c38-c1f9-4662-b06b-afd2bed552ae"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""Swipe"",
+                    ""type"": ""Value"",
+                    ""id"": ""f2816eef-7262-45fa-81a3-9fb7ee1dbec5"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""926135c3-ec19-4e1a-8ee2-46f68b941bdb"",
-                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""id"": ""c45c3947-a2f5-48d1-a819-727b62fa21df"",
+                    ""path"": ""<Touchscreen>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PrimaryContact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""552b73a0-41c8-4f6c-82c3-8ccc74c8d68b"",
-                    ""path"": ""<Touchscreen>/primaryTouch/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryPosition"",
+                    ""action"": ""Swipe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -76,8 +56,7 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
 }");
         // Touch
         m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
-        m_Touch_PrimaryContact = m_Touch.FindAction("PrimaryContact", throwIfNotFound: true);
-        m_Touch_PrimaryPosition = m_Touch.FindAction("PrimaryPosition", throwIfNotFound: true);
+        m_Touch_Swipe = m_Touch.FindAction("Swipe", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,14 +118,12 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
     // Touch
     private readonly InputActionMap m_Touch;
     private List<ITouchActions> m_TouchActionsCallbackInterfaces = new List<ITouchActions>();
-    private readonly InputAction m_Touch_PrimaryContact;
-    private readonly InputAction m_Touch_PrimaryPosition;
+    private readonly InputAction m_Touch_Swipe;
     public struct TouchActions
     {
         private @TouchControls m_Wrapper;
         public TouchActions(@TouchControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PrimaryContact => m_Wrapper.m_Touch_PrimaryContact;
-        public InputAction @PrimaryPosition => m_Wrapper.m_Touch_PrimaryPosition;
+        public InputAction @Swipe => m_Wrapper.m_Touch_Swipe;
         public InputActionMap Get() { return m_Wrapper.m_Touch; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -156,22 +133,16 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_TouchActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_TouchActionsCallbackInterfaces.Add(instance);
-            @PrimaryContact.started += instance.OnPrimaryContact;
-            @PrimaryContact.performed += instance.OnPrimaryContact;
-            @PrimaryContact.canceled += instance.OnPrimaryContact;
-            @PrimaryPosition.started += instance.OnPrimaryPosition;
-            @PrimaryPosition.performed += instance.OnPrimaryPosition;
-            @PrimaryPosition.canceled += instance.OnPrimaryPosition;
+            @Swipe.started += instance.OnSwipe;
+            @Swipe.performed += instance.OnSwipe;
+            @Swipe.canceled += instance.OnSwipe;
         }
 
         private void UnregisterCallbacks(ITouchActions instance)
         {
-            @PrimaryContact.started -= instance.OnPrimaryContact;
-            @PrimaryContact.performed -= instance.OnPrimaryContact;
-            @PrimaryContact.canceled -= instance.OnPrimaryContact;
-            @PrimaryPosition.started -= instance.OnPrimaryPosition;
-            @PrimaryPosition.performed -= instance.OnPrimaryPosition;
-            @PrimaryPosition.canceled -= instance.OnPrimaryPosition;
+            @Swipe.started -= instance.OnSwipe;
+            @Swipe.performed -= instance.OnSwipe;
+            @Swipe.canceled -= instance.OnSwipe;
         }
 
         public void RemoveCallbacks(ITouchActions instance)
@@ -191,7 +162,6 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
     public TouchActions @Touch => new TouchActions(this);
     public interface ITouchActions
     {
-        void OnPrimaryContact(InputAction.CallbackContext context);
-        void OnPrimaryPosition(InputAction.CallbackContext context);
+        void OnSwipe(InputAction.CallbackContext context);
     }
 }
