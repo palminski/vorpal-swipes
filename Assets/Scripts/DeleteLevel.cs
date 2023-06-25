@@ -10,10 +10,12 @@ public class DeleteLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y <= -32)
+        if (transform.position.y <= -(spawnLevel.transform.position.y))
         {
-            
-            spawnLevel.SpawnNextLevel();
+            Debug.Log(spawnLevel.transform.position.y);
+
+            float offset = transform.position.y + spawnLevel.transform.position.y;
+            spawnLevel.SpawnNextLevel(offset);
             Destroy(gameObject);
         }
     }

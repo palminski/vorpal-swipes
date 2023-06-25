@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LevelSpawner
   - Level
+  - Controller
   layers:
   - Default
   - TransparentFX
