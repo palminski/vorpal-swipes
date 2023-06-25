@@ -8,7 +8,7 @@ public class Sink : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sinkSpeed = 0.1f;
+        sinkSpeed = 0.0f;
     }
 
     // Update is called once per frame
