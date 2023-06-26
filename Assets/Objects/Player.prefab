@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeSensitivity: 10
   directionThreshold: 0.9
-  jumpForce: 30
+  jumpForce: 20
   Rigidbody: {fileID: 5159568041441559702}
 --- !u!114 &8210239911802274863
 MonoBehaviour:
