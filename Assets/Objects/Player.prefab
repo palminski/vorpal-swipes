@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 483502401751972743}
   - component: {fileID: 2004418009997518361}
   - component: {fileID: 5159568041441559702}
+  - component: {fileID: -1801801928017217313}
   - component: {fileID: 7940252986394688604}
+  - component: {fileID: 1851105403871373995}
   - component: {fileID: 8210239911802274863}
   - component: {fileID: 5272034552447570890}
   m_Layer: 0
@@ -161,6 +163,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-1801801928017217313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913161432899329263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad713d7110dc9643b3bcb6a013548f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeSensitivity: 20
+  directionThreshold: 0.9
 --- !u!114 &7940252986394688604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,11 +189,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de48b5e8bec69fe409083ac67ee554c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeSensitivity: 20
-  directionThreshold: 0.9
   jumpForce: 20
   Rigidbody: {fileID: 5159568041441559702}
-  spriteRenderer: {fileID: 483502401751972743}
+--- !u!114 &1851105403871373995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913161432899329263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8624e7ce0fb0944d97dd411c077e3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorA: {r: 0.027350426, g: 1, b: 0, a: 1}
+  colorB: {r: 1, g: 0, b: 0.65038824, a: 1}
 --- !u!114 &8210239911802274863
 MonoBehaviour:
   m_ObjectHideFlags: 0

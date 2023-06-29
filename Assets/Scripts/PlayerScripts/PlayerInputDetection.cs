@@ -1,39 +1,33 @@
 
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
-public class playerMovement : MonoBehaviour
+public class PlayerInputDetection : MonoBehaviour
 {
+
+    //Input Detection
     private PlayerInput playerInput;
     private InputAction swipeAction;
     private InputAction tapAction;
 
-    //For Swipe Detection
+    //For Swipe Sensitivity
     [SerializeField]
     private float swipeSensitivity = .2f;
     [SerializeField, Range(0, 1)]
     private float directionThreshold = 0.9f;
 
-    //For Movement
-    public float jumpForce;
-    public Rigidbody2D Rigidbody;
 
-    //For Sprite
-    [SerializeField]
-    private SpriteRenderer spriteRenderer;
+    //Scripts to Communicate With
+    private PlayerMovement playerMovement;
+    private PlayerColorChange playerColorChange;
 
-    private Vector2 still = new Vector2(0, 0);
-    //===================================================================
-    #region INPUT DETECTION
-    private void Awake()
+private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerColorChange = GetComponent<PlayerColorChange>();
         swipeAction = playerInput.actions.FindAction("Swipe");
         tapAction = playerInput.actions.FindAction("Tap");
-
-        // For testing as of now
-        spriteRenderer.color = Color.green;
     }
 
     private void OnEnable()
@@ -58,48 +52,25 @@ public class playerMovement : MonoBehaviour
 
             if (Vector2.Dot(Vector2.up, swipeDirection) > directionThreshold)
             {
-                Leap(new Vector2(0, jumpForce));
+                playerMovement.Leap(new Vector2(0, 1));
             }
             else if (Vector2.Dot(Vector2.down, swipeDirection) > directionThreshold)
             {
-                Leap(new Vector2(0, -jumpForce));
+                playerMovement.Leap(new Vector2(0, -1));
             }
             else if (Vector2.Dot(Vector2.right, swipeDirection) > directionThreshold)
             {
-                Leap(new Vector2(jumpForce,0));
+                playerMovement.Leap(new Vector2(1,0));
             }
             else if (Vector2.Dot(Vector2.left, swipeDirection) > directionThreshold)
             {
-                Leap(new Vector2(-jumpForce,0));
+                playerMovement.Leap(new Vector2(-1,0));
             }
         }
 
     }
 
     private void Tap(InputAction.CallbackContext context) {
-        if (spriteRenderer.color == Color.green) {
-            spriteRenderer.color = Color.magenta;
-        } 
-        else {
-            spriteRenderer.color = Color.green;
-        }
-    }
-
-    #endregion
-    //===================================================================
-
-    private void FixedUpdate()
-    {
-        //
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        //
-    }
-
-    private void Leap(Vector2 direction)
-    {
-        Rigidbody.velocity = direction;
+        playerColorChange.SwapColor();
     }
 }
