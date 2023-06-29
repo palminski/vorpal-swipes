@@ -7,6 +7,7 @@ public class playerMovement : MonoBehaviour
 {
     private PlayerInput playerInput;
     private InputAction swipeAction;
+    private InputAction tapAction;
 
     //For Swipe Detection
     [SerializeField]
@@ -18,6 +19,10 @@ public class playerMovement : MonoBehaviour
     public float jumpForce;
     public Rigidbody2D Rigidbody;
 
+    //For Sprite
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+
     private Vector2 still = new Vector2(0, 0);
     //===================================================================
     #region INPUT DETECTION
@@ -25,16 +30,22 @@ public class playerMovement : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         swipeAction = playerInput.actions.FindAction("Swipe");
+        tapAction = playerInput.actions.FindAction("Tap");
+
+        // For testing as of now
+        spriteRenderer.color = Color.green;
     }
 
     private void OnEnable()
     {
         swipeAction.performed += Swipe;
+        tapAction.performed += Tap;
     }
 
     private void OnDisable()
     {
         swipeAction.performed -= Swipe;
+        tapAction.performed -= Tap;
     }
 
     private void Swipe( InputAction.CallbackContext context)
@@ -61,6 +72,16 @@ public class playerMovement : MonoBehaviour
             {
                 Leap(new Vector2(-jumpForce,0));
             }
+        }
+
+    }
+
+    private void Tap(InputAction.CallbackContext context) {
+        if (spriteRenderer.color == Color.green) {
+            spriteRenderer.color = Color.magenta;
+        } 
+        else {
+            spriteRenderer.color = Color.green;
         }
     }
 

@@ -173,10 +173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de48b5e8bec69fe409083ac67ee554c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeSensitivity: 10
+  swipeSensitivity: 20
   directionThreshold: 0.9
   jumpForce: 20
   Rigidbody: {fileID: 5159568041441559702}
+  spriteRenderer: {fileID: 483502401751972743}
 --- !u!114 &8210239911802274863
 MonoBehaviour:
   m_ObjectHideFlags: 0
