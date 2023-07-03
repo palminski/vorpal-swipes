@@ -21,20 +21,27 @@ public class PlayerColorChange : MonoBehaviour
         spriteRenderer.color = colorA;
         playerLight.color = colorA;
         trail.startColor = colorA;
-        trail.endColor = colorA;
+        var tempColor = colorA;
+        tempColor.a = 0;
+        trail.endColor = tempColor;
     }
 
     public void SwapColor() {
+        Color colorToSwapTo;
         if (spriteRenderer.color == colorA) {
-            spriteRenderer.color = colorB;
-            trail.startColor = colorB;
-            trail.endColor = colorB;
+            colorToSwapTo = colorB;
+            
+            
         }
         else {
-            spriteRenderer.color = colorA;
-            trail.startColor = colorA;
-            trail.endColor = colorA;
+            colorToSwapTo = colorA;
+
         }
+        spriteRenderer.color = colorToSwapTo;
+            trail.startColor = colorToSwapTo;
+            colorToSwapTo.a = 0;
+            trail.endColor = colorToSwapTo;
+
         playerLight.color = spriteRenderer.color;
     }
 
