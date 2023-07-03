@@ -26,6 +26,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void Leap(Vector2 direction)
     {
+        //Rotate Player
+        //down
+        if (direction == new Vector2 (0,-1)) {
+            gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 0);
+        }
+        //right
+        else if (direction == new Vector2 (1,0)) {
+            gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 90);
+        }
+        //up
+        else if (direction == new Vector2 (0,1)) {
+            gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 180);
+        }
+        //left
+        else if (direction == new Vector2 (-1,0)) {
+            gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 270);
+        }
 
         Rigidbody.velocity = new Vector2(direction.x * jumpForce, direction.y * jumpForce);
     }
