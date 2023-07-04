@@ -8,12 +8,10 @@ public class EnemyCollision : MonoBehaviour
 {
 
     [SerializeField]
-    private bool colorIsA = true;
+    private bool startColorIsA = true;
 
-    [SerializeField]
+    GameObject player;
     private SpriteRenderer playerSpriteRenderer;
-
-    [SerializeField]
     private PlayerColorChange playerColorChange;
 
     private SpriteRenderer spriteRenderer;
@@ -23,7 +21,15 @@ public class EnemyCollision : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (colorIsA) {
+        player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
+            playerColorChange = player.GetComponent<PlayerColorChange>();
+        }
+
+
+        if (startColorIsA) {
             spriteRenderer.color = playerColorChange.colorA;
         }
         else {

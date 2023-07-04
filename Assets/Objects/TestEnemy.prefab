@@ -71,7 +71,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2.27
+  m_PointLightOuterRadius: 5.75
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 5202230225505847381}
   - component: {fileID: 6865239201309609416}
   - component: {fileID: 6563975452923554144}
-  - component: {fileID: 2835409971150176648}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -161,7 +160,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a6f6f5526ba4c9046bd857ae471761d0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.003575325, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -230,18 +229,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc61f4d2eb408f147bcf714bef377406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorIsA: 0
-  playerSpriteRenderer: {fileID: 0}
-  playerColorChange: {fileID: 0}
---- !u!114 &2835409971150176648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716454803654667485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a3ec0384873a24d932f0dc5621a7cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  startColorIsA: 1
