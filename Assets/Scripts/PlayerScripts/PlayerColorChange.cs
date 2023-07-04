@@ -11,9 +11,9 @@ public class PlayerColorChange : MonoBehaviour
     public Light2D playerLight;
 
     [SerializeField]
-    private Color colorA = Color.green;
+    public Color colorA = Color.green;
     [SerializeField]
-    private Color colorB = Color.magenta;
+    public Color colorB = Color.magenta;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
