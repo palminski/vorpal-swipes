@@ -5,48 +5,66 @@ using UnityEngine;
 public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField]
-    private GameObject pointA;
+    [Range(-100, 0)]
+    private float leftBound;
     [SerializeField]
-    private GameObject pointB;
+    [Range(0, 100)]
+    private float rightBound;
     [SerializeField]
-    private float speed;
 
+    private float speed;
     private Rigidbody2D rigidBody;
-    private Transform currentPoint;
+
+
+    private float currentTarget;
+    private float leftTarget;
+    private float rightTarget;
+
+    private bool still = false;
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        currentPoint = pointB.transform;
+
+        if (rightBound == 0 && leftBound == 0) still = true;
+
+        leftTarget = gameObject.transform.position.x + leftBound;
+        rightTarget = gameObject.transform.position.x + rightBound;
+
+        currentTarget = rightTarget;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!still)
+        {
+            //determine velocity based on current target x coord
+            if (currentTarget == rightTarget)
+            {
+                rigidBody.velocity = new Vector2(speed, 0);
+            }
+            else
+            {
+                rigidBody.velocity = new Vector2(-speed, 0);
+            }
 
-        if (currentPoint == pointB.transform)
-        {
-            rigidBody.velocity = new Vector2(speed, 0);
-        }
-        else
-        {
-            rigidBody.velocity = new Vector2(-speed, 0);
+            if (transform.position.x >= rightTarget && currentTarget == rightTarget)
+            {
+                currentTarget = leftTarget;
+            }
+            if (transform.position.x <= leftTarget && currentTarget == leftTarget)
+            {
+                currentTarget = rightTarget;
+            }
         }
 
-        if (transform.position.x >= currentPoint.position.x && currentPoint == pointB.transform) {
-            currentPoint = pointA.transform;
-        }
-        if (transform.position.x <= currentPoint.position.x && currentPoint == pointA.transform)
-        {
-            currentPoint = pointB.transform;
-        }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
-        Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
-        Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
+        Gizmos.DrawWireSphere(new Vector3(gameObject.transform.position.x + leftBound, gameObject.transform.position.y, 0), 0.5f);
+        Gizmos.DrawWireSphere(new Vector3(gameObject.transform.position.x + rightBound, gameObject.transform.position.y, 0), 0.5f);
+        Gizmos.DrawLine(new Vector3(gameObject.transform.position.x + leftBound, gameObject.transform.position.y, 0), new Vector3(gameObject.transform.position.x + rightBound, gameObject.transform.position.y, 0));
     }
 }
