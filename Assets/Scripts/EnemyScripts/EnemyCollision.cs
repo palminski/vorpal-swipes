@@ -8,6 +8,9 @@ public class EnemyCollision : MonoBehaviour
 {
 
     [SerializeField]
+    private float pointValue = 200;
+
+    [SerializeField]
     private bool startColorIsA = true;
 
     GameObject player;
@@ -47,6 +50,7 @@ public class EnemyCollision : MonoBehaviour
             else
             {
                 Object.Destroy(this.gameObject);
+                GlobalVariables.Variables.IncreaseScore(pointValue);
             }
             
         }
