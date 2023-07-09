@@ -5,20 +5,8 @@ using UnityEngine;
 public class Sink : MonoBehaviour
 {
 
-    ManageSinkSpeed manageSinkSpeed;
-    GameObject controller;
-
-    void Awake()
-    {
-        controller = GameObject.FindWithTag("Controller");
-        if (controller != null)
-        {
-            manageSinkSpeed = controller.GetComponent<ManageSinkSpeed>();
-        }
-    }
-
     private void FixedUpdate()
     {
-        gameObject.transform.position -= new Vector3(0, manageSinkSpeed.sinkSpeed, 0);
+        gameObject.transform.position -= new Vector3(0, GlobalVariables.Variables.SinkSpeed, 0);
     }
 }
