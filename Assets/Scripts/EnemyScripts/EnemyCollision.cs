@@ -8,7 +8,7 @@ public class EnemyCollision : MonoBehaviour
 {
 
     [SerializeField]
-    private float pointValue = 200;
+    private int pointValue = 200;
 
     [SerializeField]
     private bool startColorIsA = true;

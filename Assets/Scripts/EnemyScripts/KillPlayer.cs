@@ -21,7 +21,9 @@ public class KillPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            GlobalVariables.Variables.UpdateHighScores(GlobalVariables.Variables.Score);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
         }
     }
 }

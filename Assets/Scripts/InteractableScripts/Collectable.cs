@@ -6,7 +6,7 @@ public class Collectable : MonoBehaviour
 {
 
     [SerializeField]
-    private float pointValue = 100;
+    private int pointValue = 100;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
