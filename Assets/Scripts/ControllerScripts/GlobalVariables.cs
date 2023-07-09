@@ -23,14 +23,15 @@ public class GlobalVariables : MonoBehaviour
     {
         Variables = this;
         Score = 0;
-        SinkSpeed = startingSinkSpeed;
+        SinkSpeed = 0;
     }
 
         private void FixedUpdate()
     {
         if (SinkSpeed < maxSinkSpeed)
         {
-            UpdateSinkSpeed(sinkSpeedIncrease);
+            //for now it will not scroll until the sink speed is initially set
+           if (SinkSpeed != 0) UpdateSinkSpeed(sinkSpeedIncrease);
         }
         else
         {
@@ -46,6 +47,10 @@ public class GlobalVariables : MonoBehaviour
     public void UpdateSinkSpeed(float speedToAdd)
     {
         SinkSpeed += speedToAdd;
+    }
+    public void StartSinking()
+    {
+        SinkSpeed = startingSinkSpeed;
     }
 
     public void UpdateHighScores(int newScore) {

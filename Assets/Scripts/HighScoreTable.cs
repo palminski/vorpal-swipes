@@ -6,6 +6,9 @@ using TMPro;
 public class HighScoreTable : MonoBehaviour
 {
 
+    //temp
+    public Rigidbody2D playerRB;
+
     private Transform entryContainer;
     private Transform entryTemplate;
 
@@ -36,7 +39,16 @@ public class HighScoreTable : MonoBehaviour
             entryTransform.Find("rank").GetComponent<TextMeshProUGUI>().text = rank.ToString();
             entryTransform.Find("score").GetComponent<TextMeshProUGUI>().text = highScoreArray[highScoreArray.Length -1 -i];
         }
-        
+    }
+
+
+
+    private void Update() {
+        //TEMP
+        if (playerRB.velocity != new Vector2(0,0)) {
+            gameObject.SetActive(false);
+            GlobalVariables.Variables.StartSinking();
+        }
     }
 
 
