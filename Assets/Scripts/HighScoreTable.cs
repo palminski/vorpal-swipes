@@ -47,7 +47,7 @@ public class HighScoreTable : MonoBehaviour
         //TEMP
         if (playerRB.velocity != new Vector2(0,0)) {
             gameObject.SetActive(false);
-            GlobalVariables.Variables.StartSinking();
+            ControllerScript.Controller.StartSinking();
         }
     }
 

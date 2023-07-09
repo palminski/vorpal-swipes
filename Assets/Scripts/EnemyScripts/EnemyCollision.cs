@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class EnemyCollision : MonoBehaviour
 
@@ -45,12 +45,12 @@ public class EnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             if (playerSpriteRenderer.color != spriteRenderer.color) {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                ControllerScript.Controller.GameOver();
             }
             else
             {
                 Object.Destroy(this.gameObject);
-                GlobalVariables.Variables.IncreaseScore(pointValue);
+                ControllerScript.Controller.IncreaseScore(pointValue);
             }
             
         }

@@ -17,6 +17,6 @@ public class DisplayScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: "+ GlobalVariables.Variables.Score;
+        scoreText.text = "Score: "+ ControllerScript.Controller.Score;
     }
 }

@@ -18,7 +18,7 @@ public class AdjustTrail : MonoBehaviour
     private void FixedUpdate()
     {
         for (int i = 0; i < trailRenderer.positionCount; i++) {
-            trailRenderer.SetPosition(i, trailRenderer.GetPosition(i) - new Vector3(0,GlobalVariables.Variables.SinkSpeed,0));
+            trailRenderer.SetPosition(i, trailRenderer.GetPosition(i) - new Vector3(0,ControllerScript.Controller.SinkSpeed,0));
         }
     }
 }

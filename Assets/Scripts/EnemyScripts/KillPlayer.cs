@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class KillPlayer : MonoBehaviour
 {
@@ -21,8 +21,7 @@ public class KillPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GlobalVariables.Variables.UpdateHighScores(GlobalVariables.Variables.Score);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            ControllerScript.Controller.GameOver();
             
         }
     }

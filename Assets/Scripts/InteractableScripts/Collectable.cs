@@ -13,7 +13,7 @@ public class Collectable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Object.Destroy(this.gameObject);
-            GlobalVariables.Variables.IncreaseScore(pointValue);
+            ControllerScript.Controller.IncreaseScore(pointValue);
         }
     }
 }

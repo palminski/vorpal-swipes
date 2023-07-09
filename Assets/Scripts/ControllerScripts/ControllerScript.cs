@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GlobalVariables : MonoBehaviour
+public class ControllerScript : MonoBehaviour
 {
 
-    public static GlobalVariables Variables {get; private set;}
+    public static ControllerScript Controller {get; private set;}
 
     [SerializeField]
     private float startingSinkSpeed = 0.5f;
@@ -21,7 +22,7 @@ public class GlobalVariables : MonoBehaviour
 
     private void Awake()
     {
-        Variables = this;
+        Controller = this;
         Score = 0;
         SinkSpeed = 0;
     }
@@ -38,6 +39,11 @@ public class GlobalVariables : MonoBehaviour
             SinkSpeed = maxSinkSpeed;
         }
         
+    }
+
+    public void GameOver() {
+        UpdateHighScores(Score);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void IncreaseScore(int points) {
