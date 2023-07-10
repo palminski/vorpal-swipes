@@ -28,7 +28,7 @@ public class HighScoreTable : MonoBehaviour
 
         for (int i = 0; i < highScoreArray.Length; i++) {
 
-            Debug.Log(highScoreArray[i]);
+
 
             Transform entryTransform = Instantiate(entryTemplate, entryContainer);
             RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();

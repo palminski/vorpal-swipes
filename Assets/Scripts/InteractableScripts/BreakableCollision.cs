@@ -14,6 +14,8 @@ public class BreakableCollision : MonoBehaviour
     private SpriteRenderer playerSpriteRenderer;
     private PlayerColorChange playerColorChange;
 
+    private Rigidbody2D playerRB;
+
     private SpriteRenderer spriteRenderer;
 
     private BoxCollider2D boxCollider;
@@ -24,11 +26,13 @@ public class BreakableCollision : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
+        
         player = GameObject.FindWithTag("Player");
         if (player != null)
         {
             playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
             playerColorChange = player.GetComponent<PlayerColorChange>();
+            playerRB = player.GetComponent<Rigidbody2D>();
         }
 
 
@@ -51,14 +55,30 @@ public class BreakableCollision : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Player"))
+    //     {
+    //         Debug.Log("Player Entered");
+    //         Object.Destroy(this.gameObject);   
+    //     }
+    // }
 
-                Object.Destroy(this.gameObject);
-            
-            
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject == player && playerRB.velocity != new Vector2(0,0))
+        {
+            Debug.Log("Player Staying");
+            Object.Destroy(this.gameObject); 
         }
     }
+
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Player"))
+    //     {
+    //         Debug.Log("Player EXITED");
+            
+    //     }
+    // }
 }

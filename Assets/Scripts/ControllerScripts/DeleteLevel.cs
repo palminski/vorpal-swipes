@@ -12,7 +12,7 @@ public class DeleteLevel : MonoBehaviour
     {
         if (transform.position.y <= -(spawnLevel.transform.position.y))
         {
-            Debug.Log(spawnLevel.transform.position.y);
+
 
             float offset = transform.position.y + spawnLevel.transform.position.y;
             spawnLevel.SpawnNextLevel(offset);
