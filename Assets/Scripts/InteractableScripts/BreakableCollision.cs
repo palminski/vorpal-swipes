@@ -55,14 +55,6 @@ public class BreakableCollision : MonoBehaviour
         
     }
 
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Player"))
-    //     {
-    //         Debug.Log("Player Entered");
-    //         Object.Destroy(this.gameObject);   
-    //     }
-    // }
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -73,12 +65,4 @@ public class BreakableCollision : MonoBehaviour
         }
     }
 
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Player"))
-    //     {
-    //         Debug.Log("Player EXITED");
-            
-    //     }
-    // }
 }

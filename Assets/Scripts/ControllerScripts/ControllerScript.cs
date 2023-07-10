@@ -9,6 +9,9 @@ public class ControllerScript : MonoBehaviour
     public static ControllerScript Controller {get; private set;}
 
     [SerializeField]
+    private HighScoreTable highScoreTable;
+
+    [SerializeField]
     private float startingSinkSpeed = 0.5f;
     [SerializeField, Range(0, 0.1f)]
     private float sinkSpeedIncrease;
@@ -54,9 +57,10 @@ public class ControllerScript : MonoBehaviour
     {
         SinkSpeed += speedToAdd;
     }
-    public void StartSinking()
+    public void StartGame()
     {
         SinkSpeed = startingSinkSpeed;
+        highScoreTable.HideTable();
     }
 
     public void UpdateHighScores(int newScore) {
