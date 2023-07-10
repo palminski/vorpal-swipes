@@ -46,7 +46,7 @@ private void Awake()
     {
         Vector2 swipeVector = context.ReadValue<Vector2>();
 
-        if (swipeVector.magnitude >= swipeSensitivity)
+        if (swipeVector.magnitude >= swipeSensitivity && ControllerScript.Controller.SinkSpeed != 0)
         {
             Vector2 swipeDirection = swipeVector.normalized;
 

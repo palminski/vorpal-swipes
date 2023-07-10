@@ -8,7 +8,6 @@ public class SpawnLevel : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(levels.Length);
         SpawnNextLevel(0);
     }
 
