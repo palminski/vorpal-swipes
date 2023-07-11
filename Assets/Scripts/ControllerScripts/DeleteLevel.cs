@@ -7,6 +7,9 @@ public class DeleteLevel : MonoBehaviour
     public SpawnLevel spawnLevel;
     
 
+
+
+
     // Update is called once per frame
     void Update()
     {
