@@ -15,7 +15,7 @@ public class LevelScript : MonoBehaviour
 
     private LevelScript followingLevel;
 
-    [SerializeField]
+    
     private Transform spawnPoint;
 
    
@@ -23,8 +23,9 @@ public class LevelScript : MonoBehaviour
 
     void Awake()
     {
+        spawnPoint = transform.Find("SpawnPoint");
+        
         tilemap.CompressBounds();
-        Debug.Log(Screen.height);
         
     }
 
@@ -32,7 +33,7 @@ public class LevelScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(spawnPoint.position.y);
+        Debug.Log(Random.Range(0, ControllerScript.Controller.Levels.Length));
         if (spawnPoint.position.y <= -17) {
             DeleteLevel();
         }

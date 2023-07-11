@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad713d7110dc9643b3bcb6a013548f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeSensitivity: 40
+  swipeSensitivity: 30
   directionThreshold: 0.9
 --- !u!114 &7940252986394688604
 MonoBehaviour:
