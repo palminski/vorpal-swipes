@@ -21,6 +21,8 @@ public class ControllerScript : MonoBehaviour
     public int Score {get; private set;}
     public float SinkSpeed {get; private set;}
 
+    public GameObject[] Levels;
+
 
 
     private void Awake()
