@@ -8,6 +8,7 @@ public class FollowPlayer : MonoBehaviour
     public Transform player;
     void Update()
     {
-        transform.position = player.position + new Vector3(0,0,-10);
+        transform.position = new Vector3(Mathf.Clamp(player.position.x,-1000,0) ,player.position.y  ,-10);
+       
     }
 }
