@@ -56,11 +56,10 @@ public class BreakableCollision : MonoBehaviour
     }
 
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == player && playerRB.velocity != new Vector2(0,0))
+        if (other.gameObject.CompareTag("Breaker") && playerRB.velocity != new Vector2(0,0))
         {
-            Debug.Log("Player Staying");
             Object.Destroy(this.gameObject); 
         }
     }

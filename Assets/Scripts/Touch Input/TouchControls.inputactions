@@ -16,19 +16,19 @@
                 },
                 {
                     "name": "Tap",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "a9b0d485-afe9-417d-8a93-792eb017e2b4",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "c45c3947-a2f5-48d1-a819-727b62fa21df",
-                    "path": "<Touchscreen>/delta",
+                    "path": "<Touchscreen>/primaryTouch/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -38,7 +38,7 @@
                 },
                 {
                     "name": "",
-                    "id": "d763d681-e70f-4cfd-8fdb-ed975812e273",
+                    "id": "494228c2-5f99-4e60-a1ee-74846275c349",
                     "path": "<Touchscreen>/primaryTouch/tap",
                     "interactions": "",
                     "processors": "",

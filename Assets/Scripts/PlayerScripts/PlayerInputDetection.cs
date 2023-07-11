@@ -21,13 +21,16 @@ public class PlayerInputDetection : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerColorChange playerColorChange;
 
+
 private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         playerMovement = GetComponent<PlayerMovement>();
         playerColorChange = GetComponent<PlayerColorChange>();
+
         swipeAction = playerInput.actions.FindAction("Swipe");
         tapAction = playerInput.actions.FindAction("Tap");
+
     }
 
     private void OnEnable()
@@ -45,6 +48,8 @@ private void Awake()
     private void Swipe( InputAction.CallbackContext context)
     {
         Vector2 swipeVector = context.ReadValue<Vector2>();
+
+        
 
         if (swipeVector.magnitude >= swipeSensitivity && ControllerScript.Controller.SinkSpeed != 0)
         {
@@ -72,5 +77,7 @@ private void Awake()
 
     private void Tap(InputAction.CallbackContext context) {
         playerColorChange.SwapColor();
+        Debug.Log(context.ReadValueAsObject());
+        
     }
 }
