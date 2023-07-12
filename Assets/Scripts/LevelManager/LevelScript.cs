@@ -33,7 +33,6 @@ public class LevelScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Random.Range(0, ControllerScript.Controller.Levels.Length));
         if (spawnPoint.position.y <= -17) {
             DeleteLevel();
         }

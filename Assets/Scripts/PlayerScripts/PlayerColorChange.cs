@@ -16,6 +16,14 @@ public class PlayerColorChange : MonoBehaviour
     public Color colorB = Color.magenta;
 
     private void Awake() {
+
+
+        // colorA = PlayerPrefs.GetString("colorA","07FF00");
+                // colorB = PlayerPrefs.GetString("colorB","F000FF");?
+
+        ColorUtility.TryParseHtmlString("#"+PlayerPrefs.GetString("colorA","07FF00"), out colorA);
+        ColorUtility.TryParseHtmlString("#"+PlayerPrefs.GetString("colorB","F000FF"), out colorB);
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         trail = GetComponent<TrailRenderer>();
         spriteRenderer.color = colorA;
@@ -30,12 +38,9 @@ public class PlayerColorChange : MonoBehaviour
         Color colorToSwapTo;
         if (spriteRenderer.color == colorA) {
             colorToSwapTo = colorB;
-            
-            
         }
         else {
             colorToSwapTo = colorA;
-
         }
         spriteRenderer.color = colorToSwapTo;
             trail.startColor = colorToSwapTo;
@@ -43,6 +48,30 @@ public class PlayerColorChange : MonoBehaviour
             trail.endColor = colorToSwapTo;
 
         playerLight.color = spriteRenderer.color;
+    }
+
+    public void SetNewColor(Color colorToSet)
+    {
+        
+        //determine if we are currently color A or B
+        if (spriteRenderer.color == colorA) {
+            colorA = colorToSet;
+            PlayerPrefs.SetString("colorA",ColorUtility.ToHtmlStringRGB(colorToSet));
+        }
+        else {
+            colorB = colorToSet;
+            PlayerPrefs.SetString("colorB",ColorUtility.ToHtmlStringRGB(colorToSet));
+        }
+        
+        //strat by changing the players color
+        spriteRenderer.color = colorToSet;
+        trail.startColor = colorToSet;
+        colorToSet.a = 0;
+        trail.endColor = colorToSet;
+        playerLight.color = spriteRenderer.color;
+
+        
+
     }
 
 }
