@@ -8,6 +8,24 @@ public class Collectable : MonoBehaviour
     [SerializeField]
     private int pointValue = 100;
 
+    private Transform playerTransform;
+
+    private float magneticDist = 3;
+
+    private void Start () {
+        playerTransform = GameObject.Find("Player").transform;
+    }
+
+    private void Update () {
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        if (distanceToPlayer < magneticDist) {
+            float speed = magneticDist-distanceToPlayer;
+            speed = speed * Time.deltaTime * 0.5f;
+
+            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
