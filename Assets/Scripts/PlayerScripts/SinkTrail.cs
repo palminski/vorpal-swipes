@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdjustTrail : MonoBehaviour
+public class SinkTrail : MonoBehaviour
 {
-
-    private TrailRenderer trailRenderer;
-
+     private TrailRenderer trailRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +12,6 @@ public class AdjustTrail : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
         for (int i = 0; i < trailRenderer.positionCount; i++) {

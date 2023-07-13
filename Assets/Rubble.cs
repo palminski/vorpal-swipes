@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrokenBlock : MonoBehaviour
+public class Rubble : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
@@ -23,8 +23,9 @@ public class BrokenBlock : MonoBehaviour
         }
     }
 
-    public void OnActivate(Color color, Vector2 force) {
+    public void SetAttributes(Sprite sprite, Color color, Vector2 force) {
         
+        spriteRenderer.sprite = sprite;
         rb.AddForce(force);
         spriteRenderer.color = color;
     }
