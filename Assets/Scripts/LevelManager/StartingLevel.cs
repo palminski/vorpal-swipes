@@ -18,7 +18,6 @@ public class StartingLevel : MonoBehaviour
     {
         levelScript = GetComponent<LevelScript>();
         tilemap.CompressBounds();
-        Debug.Log("Tile map Size: " + tilemap.size);
         levelScript.SpawnLevel();
     }
 

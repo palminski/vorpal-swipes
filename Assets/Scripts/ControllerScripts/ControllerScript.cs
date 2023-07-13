@@ -24,12 +24,16 @@ public class ControllerScript : MonoBehaviour
     public GameObject[] Levels;
 
 
+    
+
+
 
     private void Awake()
     {
         Controller = this;
         Score = 0;
         SinkSpeed = 0;
+        PoolManager.Greet();
     }
 
         private void FixedUpdate()

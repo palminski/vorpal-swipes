@@ -16,8 +16,12 @@ public class EnemyCollision : MonoBehaviour
     GameObject player;
     private SpriteRenderer playerSpriteRenderer;
     private PlayerColorChange playerColorChange;
-
     private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    private Sprite leftCorpse;
+    [SerializeField]
+    private Sprite rightCorpse;
 
 
     // Start is called before the first frame update
@@ -32,10 +36,12 @@ public class EnemyCollision : MonoBehaviour
         }
 
 
-        if (startColorIsA) {
+        if (startColorIsA)
+        {
             spriteRenderer.color = playerColorChange.colorA;
         }
-        else {
+        else
+        {
             spriteRenderer.color = playerColorChange.colorB;
         }
     }
@@ -44,15 +50,20 @@ public class EnemyCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (playerSpriteRenderer.color != spriteRenderer.color) {
+            if (playerSpriteRenderer.color != spriteRenderer.color)
+            {
                 ControllerScript.Controller.GameOver();
             }
             else
             {
+                GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
+                Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, spriteRenderer.color, new Vector2(-200, 300));
+                GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
+                Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, spriteRenderer.color, new Vector2(200, 300));
                 Object.Destroy(this.gameObject);
                 ControllerScript.Controller.IncreaseScore(pointValue);
             }
-            
+
         }
     }
 }
