@@ -27,6 +27,7 @@ public static class PoolManager
             Debug.LogWarning("Yo, There is no pool with tag " + tag + ", Check your spelling!");
             return null;
         }
+        
 
         GameObject pulledObject = poolDictionary[tag].Dequeue();
 

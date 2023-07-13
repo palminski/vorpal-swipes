@@ -60,7 +60,13 @@ public class BreakableCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Breaker") && playerRB.velocity != new Vector2(0,0))
         {
-            Object.Destroy(this.gameObject); 
+            GameObject Rubble = PoolManager.PullFromPool("BlockRubble", transform.position, transform.rotation);
+            Rubble.GetComponent<BrokenBlock>().OnActivate(spriteRenderer.color, new Vector2 (-100,200));
+            GameObject Rubble2 = PoolManager.PullFromPool("BlockRubble", transform.position, Quaternion.Euler(Vector3.forward * 180));
+            Rubble2.GetComponent<BrokenBlock>().OnActivate(spriteRenderer.color, new Vector2 (100,200));
+            
+            Object.Destroy(this.gameObject);
+
         }
     }
 
