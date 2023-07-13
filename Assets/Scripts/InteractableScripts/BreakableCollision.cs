@@ -20,6 +20,8 @@ public class BreakableCollision : MonoBehaviour
 
     private BoxCollider2D boxCollider;
 
+    public Sprite BrokenPieceSprite;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,15 +54,19 @@ public class BreakableCollision : MonoBehaviour
         else {
             boxCollider.isTrigger = true;
         }
-        
     }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Breaker") && playerRB.velocity != new Vector2(0,0))
         {
-            Object.Destroy(this.gameObject); 
+            GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation);
+            Rubble.GetComponent<Rubble>().SetAttributes(BrokenPieceSprite, spriteRenderer.color, new Vector2 (-200,300));
+            GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, Quaternion.Euler(Vector3.forward * 180));
+            Rubble2.GetComponent<Rubble>().SetAttributes(BrokenPieceSprite, spriteRenderer.color, new Vector2 (200,300));
+            
+            Object.Destroy(this.gameObject);
+
         }
     }
 
