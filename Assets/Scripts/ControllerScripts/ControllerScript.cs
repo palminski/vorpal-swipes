@@ -33,7 +33,8 @@ public class ControllerScript : MonoBehaviour
         Controller = this;
         Score = 0;
         SinkSpeed = 0;
-        PoolManager.Greet();
+
+        Debug.Log("Last Games Score was " + StaticVars.lastScore);
     }
 
         private void FixedUpdate()
@@ -52,6 +53,7 @@ public class ControllerScript : MonoBehaviour
 
     public void GameOver() {
         UpdateHighScores(Score);
+        StaticVars.UpdateLastScore(Score);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
