@@ -13,11 +13,23 @@ public class HighScoreTable : MonoBehaviour
     private Transform entryTemplate;
 
     [SerializeField]
+    private TextMeshProUGUI lastScoreText;
+
+    [SerializeField]
     private float scoreSpacing;
 
     private void Awake() {
         entryContainer = transform.Find("highScoreEntries");
         entryTemplate = entryContainer.Find("highScoreEntryTemplate");
+
+
+        if (StaticVars.lastScore != 0) {
+            lastScoreText.text = "Last Score: " + StaticVars.lastScore;
+        }
+        else {
+            lastScoreText.text = "";
+        }
+        
 
         entryTemplate.gameObject.SetActive(false);
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5949619810202559196}
   - component: {fileID: 58302536459405464}
   - component: {fileID: 5800747416035221261}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hazards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 4129855281919914258}
   - component: {fileID: 4562786778980588790}
   - component: {fileID: 5699840642406749378}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8481,7 +8481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6111630888435624351}
   - component: {fileID: 1786941447655967717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
