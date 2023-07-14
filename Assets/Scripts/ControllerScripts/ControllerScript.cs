@@ -29,6 +29,8 @@ public class ControllerScript : MonoBehaviour
     [SerializeField]
     private float transitionTime = 1;
 
+    GameObject player;
+
 
 
 
@@ -39,6 +41,8 @@ public class ControllerScript : MonoBehaviour
         Controller = this;
         Score = 0;
         SinkSpeed = 0;
+
+        player = GameObject.FindWithTag("Player");
 
         Debug.Log("Last Games Score was " + StaticVars.lastScore);
     }
@@ -62,6 +66,9 @@ public class ControllerScript : MonoBehaviour
         UpdateHighScores(Score);
         StaticVars.UpdateLastScore(Score);
         LoadNextLevel(SceneManager.GetActiveScene().name);
+        if (player) {
+            player.GetComponent<PlayerDeath>().KillPlayer();
+        }
     }
 
     public void IncreaseScore(int points)
