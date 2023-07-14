@@ -16,7 +16,7 @@ public class Portal : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             StaticVars.setEntryPosition(enterPosition);
-            SceneManager.LoadScene(target);
+            ControllerScript.Controller.LoadNextLevel(target);
         }
     }
 }
