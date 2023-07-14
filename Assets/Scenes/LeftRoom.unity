@@ -58152,6 +58152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 5762003989859273265, guid: 73138428bcc80254fbc152380a76b75f, type: 3}
+      propertyPath: enterPosition
+      value: left
+      objectReference: {fileID: 0}
     - target: {fileID: 6435554797384002304, guid: 73138428bcc80254fbc152380a76b75f, type: 3}
       propertyPath: m_RootOrder
       value: 6
