@@ -56,12 +56,19 @@ public class EnemyCollision : MonoBehaviour
             }
             else
             {
+
+                Object.Destroy(this.gameObject);
+                ControllerScript.Controller.IncreaseScore(pointValue);
+
                 GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
                 Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, spriteRenderer.color, new Vector2(-200, 300));
                 GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
                 Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, spriteRenderer.color, new Vector2(200, 300));
-                Object.Destroy(this.gameObject);
-                ControllerScript.Controller.IncreaseScore(pointValue);
+
+                GameObject blood = PoolManager.PullWithoutRotation("Blood", transform.position);
+                blood.GetComponent<BloodScript>().Splatter();
+
+                
             }
 
         }

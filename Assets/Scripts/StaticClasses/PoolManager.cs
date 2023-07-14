@@ -5,7 +5,7 @@ using UnityEngine;
 public static class PoolManager
 {
 
-    
+
 
     public static Dictionary<string, Queue<GameObject>> poolDictionary;
 
@@ -17,21 +17,25 @@ public static class PoolManager
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
     }
 
-    public static void AddNewPool(string tag, Queue<GameObject> pool) {
+    public static void AddNewPool(string tag, Queue<GameObject> pool)
+    {
         poolDictionary.Add(tag, pool);
     }
 
-    public static GameObject PullFromPool(string tag, Vector3 position, Quaternion rotation) {
+    public static GameObject PullFromPool(string tag, Vector3 position, Quaternion rotation)
+    {
 
-        if (!poolDictionary.ContainsKey(tag)) {
+        if (!poolDictionary.ContainsKey(tag))
+        {
             Debug.LogWarning("Yo, There is no pool with tag " + tag + ", Check your spelling!");
             return null;
         }
-        
+
 
         GameObject pulledObject = poolDictionary[tag].Dequeue();
 
         pulledObject.SetActive(true);
+        pulledObject.transform.localScale = new Vector3(1, 1, 1);
         pulledObject.transform.position = position;
         pulledObject.transform.rotation = rotation;
 
@@ -40,13 +44,15 @@ public static class PoolManager
         return pulledObject;
     }
 
-    public static GameObject PullFromPool(string tag, Vector3 position, Quaternion rotation, Vector3 scale) {
+    public static GameObject PullFromPool(string tag, Vector3 position, Quaternion rotation, Vector3 scale)
+    {
 
-        if (!poolDictionary.ContainsKey(tag)) {
+        if (!poolDictionary.ContainsKey(tag))
+        {
             Debug.LogWarning("Yo, There is no pool with tag " + tag + ", Check your spelling!");
             return null;
         }
-        
+
 
         GameObject pulledObject = poolDictionary[tag].Dequeue();
 
@@ -60,7 +66,27 @@ public static class PoolManager
         return pulledObject;
     }
 
-#region Debugging
+    public static GameObject PullWithoutRotation(string tag, Vector3 position)
+    {
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Debug.LogWarning("Yo, There is no pool with tag " + tag + ", Check your spelling!");
+            return null;
+        }
+
+
+        GameObject pulledObject = poolDictionary[tag].Dequeue();
+
+        pulledObject.SetActive(true);
+        pulledObject.transform.localScale = new Vector3(1, 1, 1);
+        pulledObject.transform.position = position;
+
+        poolDictionary[tag].Enqueue(pulledObject);
+
+        return pulledObject;
+    }
+
+    #region Debugging
     public static void Greet()
     {
         Debug.Log("Hello World");
