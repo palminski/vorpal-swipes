@@ -9445,7 +9445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 0}
-  lastScore: {fileID: 865678384}
+  lastScoreText: {fileID: 865678384}
   scoreSpacing: 125
 --- !u!1 &2089357780
 GameObject:
