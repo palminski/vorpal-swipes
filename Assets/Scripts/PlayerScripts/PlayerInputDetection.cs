@@ -77,7 +77,7 @@ private void Awake()
 
     private void Tap(InputAction.CallbackContext context) {
         playerColorChange.SwapColor();
-        Debug.Log(context.ReadValueAsObject());
+
         
     }
 }

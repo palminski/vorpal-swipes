@@ -44,7 +44,6 @@ public class ControllerScript : MonoBehaviour
 
         player = GameObject.FindWithTag("Player");
 
-        Debug.Log("Last Games Score was " + StaticVars.lastScore);
     }
 
     private void FixedUpdate()
