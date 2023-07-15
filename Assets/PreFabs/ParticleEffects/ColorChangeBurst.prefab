@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3253728541156949780}
   - component: {fileID: 2923644190274374477}
   - component: {fileID: -963194757164825648}
+  - component: {fileID: -3326754336821390913}
   m_Layer: 0
   m_Name: ColorChangeBurst
   m_TagString: Untagged
@@ -4897,5 +4898,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb1059796363da64097499fb65265e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3326754336821390913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444688741697159139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a3ec0384873a24d932f0dc5621a7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
