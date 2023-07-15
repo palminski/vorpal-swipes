@@ -7,12 +7,16 @@ public class Portal : MonoBehaviour
 {
     [SerializeField]
     private string target;
+
+    [SerializeField]
+    private string enterPosition = "center";
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("touching");
         if (other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(target);
+            StaticVars.setEntryPosition(enterPosition);
+            ControllerScript.Controller.LoadNextLevel(target);
         }
     }
 }
