@@ -7,6 +7,8 @@ public class Collectable : MonoBehaviour
 
     [SerializeField]
     private int pointValue = 100;
+    [SerializeField]
+    private int coinValue = 1;
 
     private Transform playerTransform;
 
@@ -33,6 +35,7 @@ public class Collectable : MonoBehaviour
         {
             Object.Destroy(this.gameObject);
             ControllerScript.Controller.IncreaseScore(pointValue);
+            ControllerScript.Controller.addCoins(coinValue);
         }
     }
 }
