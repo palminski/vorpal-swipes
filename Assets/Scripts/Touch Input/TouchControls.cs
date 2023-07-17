@@ -38,9 +38,9 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Tap"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""a9b0d485-afe9-417d-8a93-792eb017e2b4"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -60,7 +60,7 @@ public partial class @TouchControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""494228c2-5f99-4e60-a1ee-74846275c349"",
+                    ""id"": ""64b3cf6c-ce03-419e-9fe4-febe3331778c"",
                     ""path"": ""<Touchscreen>/primaryTouch/tap"",
                     ""interactions"": """",
                     ""processors"": """",

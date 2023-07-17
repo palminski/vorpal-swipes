@@ -10,6 +10,7 @@ public class Collectable : MonoBehaviour
 
     private Transform playerTransform;
 
+[SerializeField]
     private float magneticDist = 3;
 
     private void Start () {
