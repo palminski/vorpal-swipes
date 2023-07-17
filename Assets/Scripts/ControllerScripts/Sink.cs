@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sink : MonoBehaviour
 {
 
+
     private void FixedUpdate()
     {
         gameObject.transform.position -= new Vector3(0, ControllerScript.Controller.SinkSpeed, 0);

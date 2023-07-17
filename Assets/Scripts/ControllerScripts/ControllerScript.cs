@@ -41,7 +41,6 @@ public class ControllerScript : MonoBehaviour
         Controller = this;
         Score = 0;
         SinkSpeed = 0;
-
         player = GameObject.FindWithTag("Player");
 
     }
