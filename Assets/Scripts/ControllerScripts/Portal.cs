@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour
     private string enterPosition = "center";
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("touching");
+
         if (other.gameObject.CompareTag("Player"))
         {
             StaticVars.setEntryPosition(enterPosition);

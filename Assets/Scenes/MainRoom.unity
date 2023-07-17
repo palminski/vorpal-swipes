@@ -394,6 +394,9 @@ MonoBehaviour:
   - tag: Blood
     prefab: {fileID: 379689241562205024, guid: 83fb9ae95b81e1845ab59e4031264931, type: 3}
     size: 5
+  - tag: ColorBurst
+    prefab: {fileID: 4444688741697159139, guid: 2d1a30f73c02c4e49b1258af69737fa2, type: 3}
+    size: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
