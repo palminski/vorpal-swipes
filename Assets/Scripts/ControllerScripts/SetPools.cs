@@ -35,9 +35,6 @@ public class SetPools : MonoBehaviour
 
             PoolManager.AddNewPool(objectPool.tag, pool);
 
-
-
-
         }
 
     }
