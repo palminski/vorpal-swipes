@@ -67,11 +67,12 @@ public class ControllerScript : MonoBehaviour
             collection = JsonUtility.FromJson<Collection>(PlayerPrefs.GetString("collection"));
         }
 
+        
+
         //Now we uset his data to set our variables
         CollectedItems = new HashSet<string>(collection.collectedItems);
         CollectedCoins = collection.collectedCoins;
 
-        Debug.Log("Collected Coins: "+CollectedCoins);
 
         
 
@@ -107,10 +108,15 @@ public class ControllerScript : MonoBehaviour
         Score += points;
     }
 
-    public int IncreaseCoins(int value)
+    public int addCoins(int value)
     {
         CollectedCoins = Mathf.Clamp(CollectedCoins+value,0,999);
         return CollectedCoins;
+    }
+
+    public void addCollectableItem(string collectableString) {
+        CollectedItems.Add(collectableString);
+        SaveData();
     }
 
     public void UpdateSinkSpeed(float speedToAdd)

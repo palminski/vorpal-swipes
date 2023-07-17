@@ -35,7 +35,7 @@ public class Collectable : MonoBehaviour
         {
             Object.Destroy(this.gameObject);
             ControllerScript.Controller.IncreaseScore(pointValue);
-            ControllerScript.Controller.IncreaseCoins(coinValue);
+            ControllerScript.Controller.addCoins(coinValue);
         }
     }
 }
