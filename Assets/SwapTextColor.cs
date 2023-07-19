@@ -21,7 +21,7 @@ public class SwapTextColor : MonoBehaviour
         thisText.color = playerSpriteRenderer.color;
     }
 
-    void Awake() {
+    void Start() {
         thisText = GetComponent<TextMeshProUGUI>();
         playerSpriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         SwapColor();

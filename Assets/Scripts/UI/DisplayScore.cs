@@ -26,7 +26,7 @@ public class DisplayScore : MonoBehaviour
         scoreText.color = playerSpriteRenderer.color;
     }
 
-    void Awake() {
+    void Start() {
         scoreText = GetComponent<TextMeshProUGUI>();
         playerSpriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         SwapColor();

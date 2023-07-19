@@ -15,6 +15,8 @@ public static class StaticVars
     public static void setEntryPosition(string newEntryPosition) {
         entryPosition = newEntryPosition;
     }
+
+
 }
 
 

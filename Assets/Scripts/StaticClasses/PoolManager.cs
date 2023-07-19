@@ -6,7 +6,6 @@ public static class PoolManager
 {
 
 
-
     public static Dictionary<string, Queue<GameObject>> poolDictionary;
 
 
@@ -15,6 +14,7 @@ public static class PoolManager
     {
         //create dictionary of pools
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
+        Debug.Log("Hello, I am the pool manager");
     }
 
     public static void AddNewPool(string tag, Queue<GameObject> pool)
@@ -91,6 +91,8 @@ public static class PoolManager
     {
         Debug.Log("Hello World");
     }
+    #endregion
+
 
 }
-#endregion
+

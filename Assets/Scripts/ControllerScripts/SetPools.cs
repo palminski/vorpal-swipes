@@ -17,8 +17,10 @@ public class SetPools : MonoBehaviour
 
 
     // Start is called before the first frame update
+    [RuntimeInitializeOnLoadMethod]
     void Start()
     {
+        Debug.Log("Setting Up Pools");
         PoolManager.poolDictionary.Clear();
         //for each object pool we have made we will loop through and make a pool containing however many copies of the object
         foreach (ObjectPool objectPool in objectPools)
@@ -32,13 +34,7 @@ public class SetPools : MonoBehaviour
                 pool.Enqueue(obj);
             }
             //add the newly made pool to our dictionary
-
             PoolManager.AddNewPool(objectPool.tag, pool);
-
         }
-
     }
-
-
-
 }

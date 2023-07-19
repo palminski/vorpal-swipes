@@ -24,7 +24,7 @@ public class DisplayCoins : MonoBehaviour
         coinText.color = playerSpriteRenderer.color;
     }
 
-    void Awake() {
+    void Start() {
         coinText = GetComponent<TextMeshProUGUI>();
         playerSpriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         SwapColor();
