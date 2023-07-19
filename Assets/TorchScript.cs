@@ -10,6 +10,16 @@ public class TorchScript : MonoBehaviour
     private ParticleSystem.MainModule mainModule;
 
     private Light2D torchLight;
+
+    private void OnEnable() {
+        PlayerColorChange.OnColorChange += SwapColor;
+    }
+
+    private void OnDisable() {
+        PlayerColorChange.OnColorChange -= SwapColor;
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +28,12 @@ public class TorchScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         torchLight = GetComponentInChildren<Light2D>();
         playerSpriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
+        SwapColor();
 
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void SwapColor()
     {
         torchLight.color = playerSpriteRenderer.color;
         mainModule.startColor = playerSpriteRenderer.color;

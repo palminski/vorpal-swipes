@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using System;
 
 public class PlayerColorChange : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerColorChange : MonoBehaviour
     public Color colorA = Color.green;
     [SerializeField]
     public Color colorB = Color.magenta;
+
+    public static event Action OnColorChange;
 
     private void Awake() {
 
@@ -37,8 +40,6 @@ public class PlayerColorChange : MonoBehaviour
     public void SwapColor() {
         Color colorToSwapTo;
 
-        
-
         if (spriteRenderer.color == colorA) {
             colorToSwapTo = colorB;
         }
@@ -54,6 +55,10 @@ public class PlayerColorChange : MonoBehaviour
 
         GameObject colorBurst = PoolManager.PullWithoutRotation("ColorBurst", transform.position);
         colorBurst.GetComponent<ColorChangeBurst>().ColorBurst(spriteRenderer.color);
+
+        //Color Change Action
+        OnColorChange?.Invoke();
+        
 
         
     }
@@ -78,7 +83,8 @@ public class PlayerColorChange : MonoBehaviour
         trail.endColor = colorToSet;
         playerLight.color = spriteRenderer.color;
 
-        
+        //Color Change Action
+        OnColorChange?.Invoke();
 
     }
 

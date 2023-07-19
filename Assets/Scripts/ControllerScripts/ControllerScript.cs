@@ -110,7 +110,7 @@ public class ControllerScript : MonoBehaviour
 
     public int addCoins(int value)
     {
-        CollectedCoins = Mathf.Clamp(CollectedCoins+value,0,999);
+        CollectedCoins = Mathf.Clamp(CollectedCoins+value,0,9999);
         return CollectedCoins;
     }
 

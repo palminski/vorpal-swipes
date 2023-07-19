@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class DisplayCoins : MonoBehaviour
+public class SwapTextColor : MonoBehaviour
 {
-
-    private TextMeshProUGUI coinText;
+    private TextMeshProUGUI thisText;
     
     private SpriteRenderer playerSpriteRenderer;
 
@@ -21,18 +18,12 @@ public class DisplayCoins : MonoBehaviour
     }
     
     void SwapColor() {
-        coinText.color = playerSpriteRenderer.color;
+        thisText.color = playerSpriteRenderer.color;
     }
 
     void Awake() {
-        coinText = GetComponent<TextMeshProUGUI>();
+        thisText = GetComponent<TextMeshProUGUI>();
         playerSpriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         SwapColor();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        coinText.text = "Coins: "+ ControllerScript.Controller.CollectedCoins;
     }
 }

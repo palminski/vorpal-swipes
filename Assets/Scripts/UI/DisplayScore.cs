@@ -8,10 +8,28 @@ using TMPro;
 public class DisplayScore : MonoBehaviour
 {
 
-    private TextMeshProUGUI scoreText;
     
+
+    private TextMeshProUGUI scoreText;
+
+    private SpriteRenderer playerSpriteRenderer;
+
+    private void OnEnable() {
+        PlayerColorChange.OnColorChange += SwapColor;
+    }
+
+    private void OnDisable() {
+        PlayerColorChange.OnColorChange -= SwapColor;
+    }
+    
+    void SwapColor() {
+        scoreText.color = playerSpriteRenderer.color;
+    }
+
     void Awake() {
         scoreText = GetComponent<TextMeshProUGUI>();
+        playerSpriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
+        SwapColor();
     }
 
     // Update is called once per frame
@@ -19,4 +37,6 @@ public class DisplayScore : MonoBehaviour
     {
         scoreText.text = "Score: "+ ControllerScript.Controller.Score;
     }
+
+
 }
