@@ -711,9 +711,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: c345acba9e99ce34e8dc529b2755ef2c, type: 3}
-      name: _NormalMap
+    secondaryTextures: []
     nameFileIdTable:
       Decorations_0: -985502996
       Decorations_1: 1886332454
