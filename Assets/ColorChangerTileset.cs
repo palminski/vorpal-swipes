@@ -25,5 +25,6 @@ public class ColorChangerTileset : MonoBehaviour
         tilemap = GetComponent<Tilemap>();
         playerSpriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         SwapColor();
+
     }
 }

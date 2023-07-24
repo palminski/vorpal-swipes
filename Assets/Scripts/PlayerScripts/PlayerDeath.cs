@@ -10,9 +10,12 @@ public class PlayerDeath : MonoBehaviour
     public void KillPlayer() {
 
         if (playerLight) Instantiate(playerLight, transform.position, transform.rotation);
-        gameObject.SetActive(false);
+        
         
         GameObject blood = PoolManager.PullWithoutRotation("Blood", transform.position);
+        
         blood.GetComponent<BloodScript>().Splatter();
+
+        transform.position = new Vector3 (1000,0,0);
     }
 }
