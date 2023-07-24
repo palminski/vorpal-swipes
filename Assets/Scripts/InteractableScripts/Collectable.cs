@@ -20,13 +20,18 @@ public class Collectable : MonoBehaviour
     }
 
     private void Update () {
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-        if (distanceToPlayer < magneticDist) {
+        if (playerTransform != null)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+            if (distanceToPlayer < magneticDist) {
             float speed = magneticDist-distanceToPlayer;
-            speed = speed * Time.deltaTime * 0.5f;
+            speed = speed * Time.deltaTime * 2;
 
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed);
         }
+        }
+         
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -6,8 +6,7 @@ using TMPro;
 public class HighScoreTable : MonoBehaviour
 {
 
-    //temp
-    public Rigidbody2D playerRB;
+
 
     private Transform entryContainer;
     private Transform entryTemplate;
@@ -18,9 +17,12 @@ public class HighScoreTable : MonoBehaviour
     [SerializeField]
     private float scoreSpacing;
 
+
     private void Awake() {
         entryContainer = transform.Find("highScoreEntries");
         entryTemplate = entryContainer.Find("highScoreEntryTemplate");
+
+
 
 
         if (StaticVars.lastScore != 0) {
@@ -51,6 +53,7 @@ public class HighScoreTable : MonoBehaviour
             entryTransform.Find("rank").GetComponent<TextMeshProUGUI>().text = rank.ToString();
             entryTransform.Find("score").GetComponent<TextMeshProUGUI>().text = highScoreArray[highScoreArray.Length -1 -i];
         }
+        
     }
 
 
@@ -58,6 +61,4 @@ public class HighScoreTable : MonoBehaviour
     public void HideTable() {
         gameObject.SetActive(false);
     }
-
-
 }
