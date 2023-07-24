@@ -10,8 +10,24 @@ public class DisplayCoins : MonoBehaviour
 
     private TextMeshProUGUI coinText;
     
-    void Awake() {
+    private SpriteRenderer playerSpriteRenderer;
+
+    private void OnEnable() {
+        PlayerColorChange.OnColorChange += SwapColor;
+    }
+
+    private void OnDisable() {
+        PlayerColorChange.OnColorChange -= SwapColor;
+    }
+    
+    void SwapColor() {
+        coinText.color = playerSpriteRenderer.color;
+    }
+
+    void Start() {
         coinText = GetComponent<TextMeshProUGUI>();
+        playerSpriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
+        SwapColor();
     }
 
     // Update is called once per frame

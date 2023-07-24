@@ -49,10 +49,11 @@ public class BreakableCollision : MonoBehaviour
 
     void FixedUpdate() {
         if (playerSpriteRenderer.color != spriteRenderer.color) {
-            boxCollider.isTrigger = false;
+            boxCollider.usedByComposite = true;
+
         }
         else {
-            boxCollider.isTrigger = true;
+            boxCollider.usedByComposite = false;
         }
     }
 

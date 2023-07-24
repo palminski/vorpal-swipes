@@ -9,4 +9,6 @@ public static class Utilities
         newColor.a -= 0.03f;
         spriteRenderer.color = newColor;
     }
+
+
 }
