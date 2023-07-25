@@ -129,6 +129,18 @@ public class ControllerScript : MonoBehaviour
         highScoreTable.HideTable();
     }
 
+    public void PauseGame() {
+        
+        if (Time.timeScale == 0) {
+            Debug.Log("Game Resumed");
+            Time.timeScale = 1;
+        }
+        else {
+            Debug.Log("Game Paused");
+            Time.timeScale = 0;
+        }
+    }
+
     public void UpdateHighScores(int newScore)
     {
         int[] highScoreArray = System.Array.ConvertAll(PlayerPrefs.GetString("highScores", "1000###1000###1000###1000###1000").Split("###"), int.Parse);

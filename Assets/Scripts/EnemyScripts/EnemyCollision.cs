@@ -61,12 +61,12 @@ public class EnemyCollision : MonoBehaviour
                 ControllerScript.Controller.IncreaseScore(pointValue);
 
                 GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
-                Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, spriteRenderer.color, new Vector2(-200, 300));
+                if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, spriteRenderer.color, new Vector2(-200, 300));
                 GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
-                Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, spriteRenderer.color, new Vector2(200, 300));
+                if (Rubble2) Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, spriteRenderer.color, new Vector2(200, 300));
 
                 GameObject blood = PoolManager.PullWithoutRotation("Blood", transform.position);
-                blood.GetComponent<BloodScript>().Splatter();
+                if (blood) blood.GetComponent<BloodScript>().Splatter();
 
                 
             }

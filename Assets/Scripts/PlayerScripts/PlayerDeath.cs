@@ -14,7 +14,7 @@ public class PlayerDeath : MonoBehaviour
         
         GameObject blood = PoolManager.PullWithoutRotation("Blood", transform.position);
         
-        blood.GetComponent<BloodScript>().Splatter();
+        if (blood) blood.GetComponent<BloodScript>().Splatter();
 
         transform.position = new Vector3 (1000,0,0);
     }
