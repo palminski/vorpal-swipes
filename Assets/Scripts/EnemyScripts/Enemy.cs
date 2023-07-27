@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnemyCollision : MonoBehaviour
+public class Enemy : MonoBehaviour
 
 {
 
@@ -16,7 +16,12 @@ public class EnemyCollision : MonoBehaviour
     GameObject player;
     private SpriteRenderer playerSpriteRenderer;
     private PlayerColorChange playerColorChange;
-    private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    private SpriteRenderer spriteRendererToColor;
+
+    private Color enemyColor;
+    private Color corpseColor = Color.white;
 
     [SerializeField]
     private Sprite leftCorpse;
@@ -24,11 +29,15 @@ public class EnemyCollision : MonoBehaviour
     private Sprite rightCorpse;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        
+
         player = GameObject.FindWithTag("Player");
+
         if (player != null)
         {
             playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
@@ -38,39 +47,57 @@ public class EnemyCollision : MonoBehaviour
 
         if (startColorIsA)
         {
-            spriteRenderer.color = playerColorChange.colorA;
+            enemyColor = playerColorChange.colorA;
         }
         else
         {
-            spriteRenderer.color = playerColorChange.colorB;
+            enemyColor = playerColorChange.colorB;
         }
+
+        if (!spriteRendererToColor)
+        {
+            spriteRendererToColor = GetComponent<SpriteRenderer>();
+            corpseColor = enemyColor;
+        }
+        spriteRendererToColor.color = enemyColor;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (playerSpriteRenderer.color != spriteRenderer.color)
+            if (playerSpriteRenderer.color != spriteRendererToColor.color)
             {
                 ControllerScript.Controller.GameOver();
             }
             else
             {
-
                 Object.Destroy(this.gameObject);
                 ControllerScript.Controller.IncreaseScore(pointValue);
 
                 GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
-                if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, spriteRenderer.color, new Vector2(-200, 300));
+                if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x)*-200), 300));
                 GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
-                if (Rubble2) Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, spriteRenderer.color, new Vector2(200, 300));
+                if (Rubble2) Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x)*200), 300));
 
                 GameObject blood = PoolManager.PullWithoutRotation("Blood", transform.position);
                 if (blood) blood.GetComponent<BloodScript>().Splatter();
-
-                
             }
 
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (startColorIsA)
+        {
+            Gizmos.color = Color.green;
+        }
+        else
+        {
+            Gizmos.color = Color.magenta;
+        }
+        Gizmos.DrawWireSphere(transform.position, 1f);
+
     }
 }
