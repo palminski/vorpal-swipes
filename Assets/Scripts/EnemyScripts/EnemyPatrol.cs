@@ -21,9 +21,12 @@ public class EnemyPatrol : MonoBehaviour
     private float rightTarget;
 
     private bool still = false;
+
+    private Vector3 startingScale;
     // Start is called before the first frame update
     void Start()
     {
+        startingScale = transform.localScale;
         rigidBody = GetComponent<Rigidbody2D>();
 
         if (rightBound == 0 && leftBound == 0) still = true;
@@ -35,8 +38,11 @@ public class EnemyPatrol : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        
+        transform.localScale = Vector3.Scale(startingScale, new Vector3(Mathf.Sign(rigidBody.velocity.x),1,1));
+
         if (!still)
         {
             //determine velocity based on current target x coord

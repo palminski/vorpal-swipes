@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerInputDetection : MonoBehaviour
 {
@@ -47,6 +48,7 @@ private void Awake()
 
     private void Swipe( InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0) return;
         Vector2 swipeVector = context.ReadValue<Vector2>();
 
         
@@ -76,8 +78,12 @@ private void Awake()
     }
 
     private void Tap(InputAction.CallbackContext context) {
-        playerColorChange.SwapColor();
+        if (Time.timeScale == 0) return;
+        StartCoroutine(DelayColorChange());
+    }
 
-        
+    private IEnumerator DelayColorChange() {
+        yield return null;
+        playerColorChange.SwapColor();
     }
 }
