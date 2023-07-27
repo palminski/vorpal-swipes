@@ -121,12 +121,32 @@ public class ControllerScript : MonoBehaviour
 
     public void UpdateSinkSpeed(float speedToAdd)
     {
-        SinkSpeed += speedToAdd;
+        if (SinkSpeed < maxSinkSpeed)
+        {
+            //for now it will not scroll until the sink speed is initially set
+            if (SinkSpeed != 0) SinkSpeed += speedToAdd;
+        }
+        else
+        {
+            SinkSpeed = maxSinkSpeed;
+        }
     }
     public void StartGame()
     {
         SinkSpeed = startingSinkSpeed;
         highScoreTable.HideTable();
+    }
+
+    public void PauseGame() {
+        
+        if (Time.timeScale == 0) {
+            Debug.Log("Game Resumed");
+            Time.timeScale = 1;
+        }
+        else {
+            Debug.Log("Game Paused");
+            Time.timeScale = 0;
+        }
     }
 
     public void UpdateHighScores(int newScore)

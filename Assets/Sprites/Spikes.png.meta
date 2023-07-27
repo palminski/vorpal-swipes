@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -165,6 +165,36 @@ TextureImporter:
       name: Spikes_1
       rect:
         serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -28, y: -32}
+        - {x: -10, y: -32}
+        - {x: -21, y: -22}
+      - - {x: -10, y: -32}
+        - {x: 12, y: -32}
+        - {x: 1, y: -21}
+      - - {x: 12, y: -32}
+        - {x: 29, y: -32}
+        - {x: 22, y: -20}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e76455cbcfc774ba9c6eaf6907690c
+      internalID: 564349155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_2
+      rect:
+        serializedVersion: 2
         x: 0
         y: 256
         width: 64
@@ -180,14 +210,14 @@ TextureImporter:
         - {x: 2, y: -21}
       tessellationDetail: 0
       bones: []
-      spriteID: e6e76455cbcfc774ba9c6eaf6907690c
-      internalID: 564349155
+      spriteID: 0e65ad1cfaaad9a45b1f7546479ee628
+      internalID: 1563731530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_2
+      name: Spikes_3
       rect:
         serializedVersion: 2
         x: 128
@@ -205,14 +235,74 @@ TextureImporter:
         - {x: 2, y: -21}
       tessellationDetail: 0
       bones: []
-      spriteID: 0e65ad1cfaaad9a45b1f7546479ee628
-      internalID: 1563731530
+      spriteID: 833e065a3cc76334584a3ffd6e35ef98
+      internalID: 1806665332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_3
+      name: Spikes_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 21, y: 1}
+        - {x: 32, y: -8}
+        - {x: 32, y: 12}
+      - - {x: 20, y: 22}
+        - {x: 32, y: 12}
+        - {x: 32, y: 27}
+      - - {x: 20, y: -21}
+        - {x: 32, y: -11}
+        - {x: 32, y: -29}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a3947efae569744b6e23576da97739
+      internalID: -323557961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: -12}
+        - {x: -32, y: -27}
+        - {x: -20, y: -22}
+      - - {x: -32, y: 10}
+        - {x: -32, y: -12}
+        - {x: -20, y: -1}
+      - - {x: -32, y: 27}
+        - {x: -32, y: 10}
+        - {x: -20, y: 20}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c8f393d0dbe084e92a278ffaa67d78
+      internalID: 1005788009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_6
       rect:
         serializedVersion: 2
         x: 64
@@ -230,8 +320,38 @@ TextureImporter:
         - {x: 22, y: 0}
       tessellationDetail: 0
       bones: []
-      spriteID: 833e065a3cc76334584a3ffd6e35ef98
-      internalID: 1806665332
+      spriteID: 88c7e3c4c3e47524eb7fed31bbc3f6e0
+      internalID: 617094281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -27, y: 32}
+        - {x: -22, y: 22}
+        - {x: -12, y: 32}
+      - - {x: -1, y: 22}
+        - {x: 10, y: 32}
+        - {x: -12, y: 32}
+      - - {x: 10, y: 32}
+        - {x: 21, y: 21}
+        - {x: 27, y: 32}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62d9797407a73543a103353e24375f7
+      internalID: 1805015410
       vertices: []
       indices: 
       edges: []
@@ -253,6 +373,10 @@ TextureImporter:
       Spikes_1: 564349155
       Spikes_2: 1563731530
       Spikes_3: 1806665332
+      Spikes_4: -323557961
+      Spikes_5: 1005788009
+      Spikes_6: 617094281
+      Spikes_7: 1805015410
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

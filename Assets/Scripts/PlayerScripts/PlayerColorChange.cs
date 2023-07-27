@@ -38,6 +38,7 @@ public class PlayerColorChange : MonoBehaviour
     }
 
     public void SwapColor() {
+        if (Time.timeScale == 0) return;
         Color colorToSwapTo;
 
         if (spriteRenderer.color == colorA) {
@@ -54,7 +55,7 @@ public class PlayerColorChange : MonoBehaviour
         playerLight.color = spriteRenderer.color;
 
         GameObject colorBurst = PoolManager.PullWithoutRotation("ColorBurst", transform.position);
-        colorBurst.GetComponent<ColorChangeBurst>().ColorBurst(spriteRenderer.color);
+        if (colorBurst) colorBurst.GetComponent<ColorChangeBurst>().ColorBurst(spriteRenderer.color);
 
         //Color Change Action
         OnColorChange?.Invoke();
