@@ -122,6 +122,12 @@ public class ControllerScript : MonoBehaviour
         SaveData();
     }
 
+    public void debugFunction() {
+        CollectedItems.Clear();
+        addCoins(9999);
+        SaveData();
+    }
+
     public void UpdateSinkSpeed(float speedToAdd)
     {
         if (SinkSpeed < maxSinkSpeed)
