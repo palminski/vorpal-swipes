@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9178707978485313762}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.32, y: 18.1811, z: 0}
   m_LocalScale: {x: 0.4304, y: 2.7116532, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3650306286169562569
 SpriteRenderer:
@@ -143,5 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca6d1360a78dd94c885e8f4e983d256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockCost: 100
+  unlockCost: 5000
   collectableStringKey: default

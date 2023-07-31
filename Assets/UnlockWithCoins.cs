@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UnlockWithCoins : MonoBehaviour
 {
@@ -12,7 +13,13 @@ public class UnlockWithCoins : MonoBehaviour
     [SerializeField]
     private int unlockCost = 100;
 
+    
+    private TextMeshProUGUI lockText;
+
     public string collectableStringKey = "default";
+
+    [SerializeField]
+    private Sprite BrokenPieceSprite;
 
 
     // Start is called before the first frame update
@@ -20,6 +27,9 @@ public class UnlockWithCoins : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider2D>();
         player = GameObject.FindWithTag("Player");
+        lockText = GetComponentInChildren<TextMeshProUGUI>();
+        lockText.text = unlockCost.ToString();
+
         if (player != null)
         {
 
@@ -49,7 +59,14 @@ public class UnlockWithCoins : MonoBehaviour
             
             ControllerScript.Controller.addCoins(-unlockCost);
             ControllerScript.Controller.addCollectableItem(collectableStringKey);
-            
+            GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),Random.Range(0f,360f)));
+            if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(BrokenPieceSprite, Color.white, new Vector2 (Random.Range(0f,360f),Random.Range(0f,360f)));
+            GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),Random.Range(0f,360f)));
+            if (Rubble2) Rubble2.GetComponent<Rubble>().SetAttributes(BrokenPieceSprite, Color.white, new Vector2 (Random.Range(0f,360f),Random.Range(-360f,0f)));
+            GameObject Rubble3 = PoolManager.PullFromPool("Rubble", transform.position, Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),Random.Range(0f,360f)));
+            if (Rubble3) Rubble3.GetComponent<Rubble>().SetAttributes(BrokenPieceSprite, Color.white, new Vector2 (Random.Range(-360f,0f),Random.Range(0f,360f)));
+            GameObject Rubble4 = PoolManager.PullFromPool("Rubble", transform.position, Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),Random.Range(0f,360f)));
+            if (Rubble4) Rubble4.GetComponent<Rubble>().SetAttributes(BrokenPieceSprite, Color.white, new Vector2 (Random.Range(-360f,0f),Random.Range(-360f,0f)));
             Object.Destroy(this.gameObject);
 
         }
