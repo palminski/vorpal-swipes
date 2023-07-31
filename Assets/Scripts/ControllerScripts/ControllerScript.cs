@@ -13,6 +13,9 @@ public class ControllerScript : MonoBehaviour
     private HighScoreTable highScoreTable;
 
     [SerializeField]
+    private GameObject mainMenu;
+
+    [SerializeField]
     private float startingSinkSpeed = 0.5f;
 
     [SerializeField, Range(0, 0.1f)]
@@ -119,6 +122,12 @@ public class ControllerScript : MonoBehaviour
         SaveData();
     }
 
+    public void debugFunction() {
+        CollectedItems.Clear();
+        addCoins(9999);
+        SaveData();
+    }
+
     public void UpdateSinkSpeed(float speedToAdd)
     {
         if (SinkSpeed < maxSinkSpeed)
@@ -135,6 +144,7 @@ public class ControllerScript : MonoBehaviour
     {
         SinkSpeed = startingSinkSpeed;
         highScoreTable.HideTable();
+        mainMenu.SetActive(false);
     }
 
     public void PauseGame() {
