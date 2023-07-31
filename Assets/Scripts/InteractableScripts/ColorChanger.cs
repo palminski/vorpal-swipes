@@ -6,7 +6,7 @@ public class ColorChanger : MonoBehaviour
 {
 
     private SpriteRenderer spriteRenderer;
-    public GameObject player;
+    private GameObject player;
 
     private SpriteRenderer playerSpriteRenderer;
 
@@ -14,6 +14,7 @@ public class ColorChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
         playerColorChange = player.GetComponent<PlayerColorChange>();
