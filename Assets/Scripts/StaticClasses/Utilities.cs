@@ -10,5 +10,6 @@ public static class Utilities
         spriteRenderer.color = newColor;
     }
 
+    
 
 }
