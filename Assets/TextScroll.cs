@@ -9,7 +9,8 @@ public class TextScroll : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction tapAction;
 
-    
+    [SerializeField]
+    private float scrollDelay = 100;
 
 
     
@@ -33,7 +34,15 @@ public class TextScroll : MonoBehaviour
     }
 
 
+    void FixedUpdate() {
+        if (scrollDelay > 0) {
+                    scrollDelay--;
+        }
+        if (scrollDelay == 1) {
+            ControllerScript.Controller.StartGame();
+        }
 
+    }
 
     private void Tap(InputAction.CallbackContext context) {
 

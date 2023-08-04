@@ -143,8 +143,8 @@ public class ControllerScript : MonoBehaviour
     public void StartGame()
     {
         SinkSpeed = startingSinkSpeed;
-        highScoreTable.HideTable();
-        mainMenu.SetActive(false);
+        if (highScoreTable) highScoreTable.HideTable();
+        if (mainMenu) mainMenu.SetActive(false);
     }
 
     public void PauseGame() {
