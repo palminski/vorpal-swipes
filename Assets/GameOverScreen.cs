@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
+
 
 
 public class GameOverScreen : MonoBehaviour
@@ -30,7 +30,7 @@ public class GameOverScreen : MonoBehaviour
         private void Tap(InputAction.CallbackContext context) {
 
 
-            SceneManager.LoadScene("MainRoom");
+            ControllerScript.Controller.LoadNextLevel("MainRoom");
 
 
     }
