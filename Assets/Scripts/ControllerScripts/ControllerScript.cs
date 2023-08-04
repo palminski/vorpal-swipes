@@ -99,7 +99,7 @@ public class ControllerScript : MonoBehaviour
         SaveData();
         UpdateHighScores(Score);
         StaticVars.UpdateLastScore(Score);
-        LoadNextLevel(SceneManager.GetActiveScene().name);
+        LoadNextLevel("GameOverScreen");
         if (player) {
             player.GetComponent<PlayerDeath>().KillPlayer();
         }
