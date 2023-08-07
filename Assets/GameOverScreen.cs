@@ -18,7 +18,7 @@ public class GameOverScreen : MonoBehaviour
     private int i = 0;
 
 
-    private Color colorForText;
+    private Color colorForText = StaticVars.lastColor;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,7 +27,7 @@ public class GameOverScreen : MonoBehaviour
         gameOverText = GetComponent<TextMeshProUGUI>();
         gameOverString = gameOverText.text;
         tapAction = playerInput.actions.FindAction("Tap");
-        ColorUtility.TryParseHtmlString("#" + PlayerPrefs.GetString("colorA", "07FF00"), out colorForText);
+        // ColorUtility.TryParseHtmlString("#" + PlayerPrefs.GetString("colorA", "07FF00"), out colorForText);
     }
 
     void Start()

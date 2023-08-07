@@ -14,8 +14,11 @@ public class TitleScreenPlayer : MonoBehaviour
     void Awake()
     {
 
-        ColorUtility.TryParseHtmlString("#"+PlayerPrefs.GetString("colorA","07FF00"), out color);
-        // ColorUtility.TryParseHtmlString("#"+PlayerPrefs.GetString("colorB","F000FF"), out color);
+
+        ColorUtility.TryParseHtmlString("#"+PlayerPrefs.GetString("colorB","F000FF"), out color);
+        if (StaticVars.lastColor == color) {
+            ColorUtility.TryParseHtmlString("#"+PlayerPrefs.GetString("colorA","07FF00"), out color);
+        }
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         

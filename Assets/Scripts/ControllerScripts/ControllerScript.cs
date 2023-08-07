@@ -33,22 +33,23 @@ public class ControllerScript : MonoBehaviour
 
     //Private Variables to be checked for elsewhere
     public int Score { get; private set; }
-    public float SinkSpeed { get; private set;}
+    public float SinkSpeed { get; private set; }
 
-    public HashSet<string> CollectedItems { get; private set;}
+    public HashSet<string> CollectedItems { get; private set; }
 
-    public int CollectedCoins { get; private set;}
-    
+    public int CollectedCoins { get; private set; }
+
 
     public GameObject[] Levels;
 
-
+    private GameObject pauseMenu;
 
     GameObject player;
 
 
     [System.Serializable]
-    private class Collection {
+    private class Collection
+    {
         public List<string> collectedItems;
         public int collectedCoins;
     }
@@ -60,24 +61,26 @@ public class ControllerScript : MonoBehaviour
         Score = 0;
         SinkSpeed = 0;
         player = GameObject.FindWithTag("Player");
-        
+        pauseMenu = GameObject.FindWithTag("PauseMenu");
+
         //default collection
-        Collection collection = new Collection{collectedItems = new List<string>(), collectedCoins = 0};
+        Collection collection = new Collection { collectedItems = new List<string>(), collectedCoins = 0 };
 
         //if saved data this is now the collection
-        if (PlayerPrefs.HasKey("collection")) {
+        if (PlayerPrefs.HasKey("collection"))
+        {
             Debug.Log("Found collection in player prefs!");
             collection = JsonUtility.FromJson<Collection>(PlayerPrefs.GetString("collection"));
         }
 
-        
+
 
         //Now we uset his data to set our variables
         CollectedItems = new HashSet<string>(collection.collectedItems);
         CollectedCoins = collection.collectedCoins;
 
 
-        
+
 
     }
 
@@ -100,10 +103,11 @@ public class ControllerScript : MonoBehaviour
         UpdateHighScores(Score);
         StaticVars.UpdateLastScore(Score);
         LoadNextLevel("GameOverScreen");
-        if (player) {
+        if (player)
+        {
             player.GetComponent<PlayerDeath>().KillPlayer();
         }
-        
+
     }
 
     public void IncreaseScore(int points)
@@ -113,16 +117,18 @@ public class ControllerScript : MonoBehaviour
 
     public int addCoins(int value)
     {
-        CollectedCoins = Mathf.Clamp(CollectedCoins+value,0,9999);
+        CollectedCoins = Mathf.Clamp(CollectedCoins + value, 0, 9999);
         return CollectedCoins;
     }
 
-    public void addCollectableItem(string collectableString) {
+    public void addCollectableItem(string collectableString)
+    {
         CollectedItems.Add(collectableString);
         SaveData();
     }
 
-    public void debugFunction() {
+    public void debugFunction()
+    {
         CollectedItems.Clear();
         addCoins(9999);
         SaveData();
@@ -147,15 +153,23 @@ public class ControllerScript : MonoBehaviour
         if (mainMenu) mainMenu.SetActive(false);
     }
 
-    public void PauseGame() {
-        
-        if (Time.timeScale == 0) {
+    public void PauseGame()
+    {
+
+        if (Time.timeScale == 0)
+        {
             Debug.Log("Game Resumed");
             Time.timeScale = 1;
         }
-        else {
+        else
+        {
             Debug.Log("Game Paused");
+
             Time.timeScale = 0;
+            if (pauseMenu)
+            {
+                pauseMenu.SetActive(true);
+            }
         }
     }
 
@@ -173,16 +187,19 @@ public class ControllerScript : MonoBehaviour
 
     public void LoadNextLevel(string sceneName)
     {
+        if (player) StaticVars.SetLastColor(player.GetComponent<SpriteRenderer>().color);
         StartCoroutine(LoadLevel(sceneName));
     }
 
-    public void SaveData() {
-        Collection collection = new Collection{collectedItems = new List<string>(CollectedItems), collectedCoins = CollectedCoins};
+    public void SaveData()
+    {
+        Collection collection = new Collection { collectedItems = new List<string>(CollectedItems), collectedCoins = CollectedCoins };
         string json = JsonUtility.ToJson(collection);
         PlayerPrefs.SetString("collection", json);
     }
 
-    IEnumerator LoadLevel(string sceneName) {
+    IEnumerator LoadLevel(string sceneName)
+    {
         //play animation
         transition.SetTrigger("Start");
 

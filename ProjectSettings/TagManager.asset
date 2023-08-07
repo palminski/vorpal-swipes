@@ -8,6 +8,7 @@ TagManager:
   - Level
   - Controller
   - Breaker
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
