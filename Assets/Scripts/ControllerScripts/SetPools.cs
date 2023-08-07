@@ -20,7 +20,7 @@ public class SetPools : MonoBehaviour
     [RuntimeInitializeOnLoadMethod]
     void Start()
     {
-        Debug.Log("Setting Up Pools");
+
         PoolManager.poolDictionary.Clear();
         //for each object pool we have made we will loop through and make a pool containing however many copies of the object
         foreach (ObjectPool objectPool in objectPools)

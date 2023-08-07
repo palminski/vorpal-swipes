@@ -11,7 +11,7 @@ public class PauseScreen : MonoBehaviour
     private SpriteRenderer playerSpriteRenderer;
     private TextMeshProUGUI pauseText;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pauseText = GetComponentInChildren<TextMeshProUGUI>();
         playerSpriteRenderer = GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>();

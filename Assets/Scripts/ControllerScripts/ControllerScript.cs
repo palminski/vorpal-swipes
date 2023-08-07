@@ -69,7 +69,6 @@ public class ControllerScript : MonoBehaviour
         //if saved data this is now the collection
         if (PlayerPrefs.HasKey("collection"))
         {
-            Debug.Log("Found collection in player prefs!");
             collection = JsonUtility.FromJson<Collection>(PlayerPrefs.GetString("collection"));
         }
 
@@ -158,12 +157,10 @@ public class ControllerScript : MonoBehaviour
 
         if (Time.timeScale == 0)
         {
-            Debug.Log("Game Resumed");
             Time.timeScale = 1;
         }
         else
         {
-            Debug.Log("Game Paused");
 
             Time.timeScale = 0;
             if (pauseMenu)
