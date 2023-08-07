@@ -1,13 +1,12 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 using TMPro;
 
 
 public class GameOverScreen : MonoBehaviour
 {
 
-    private PlayerInput playerInput;
-    private InputAction tapAction;
+    
 
     private TextMeshProUGUI gameOverText;
     [SerializeField]
@@ -23,10 +22,10 @@ public class GameOverScreen : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
+        
         gameOverText = GetComponent<TextMeshProUGUI>();
         gameOverString = gameOverText.text;
-        tapAction = playerInput.actions.FindAction("Tap");
+        
         // ColorUtility.TryParseHtmlString("#" + PlayerPrefs.GetString("colorA", "07FF00"), out colorForText);
     }
 
@@ -47,22 +46,4 @@ public class GameOverScreen : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        tapAction.performed += Tap;
-    }
-
-    private void OnDisable()
-    {
-        tapAction.performed -= Tap;
-    }
-
-    private void Tap(InputAction.CallbackContext context)
-    {
-
-
-        ControllerScript.Controller.LoadNextLevel("MainRoom");
-
-
-    }
 }
