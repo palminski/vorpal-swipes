@@ -8,6 +8,8 @@ public static class StaticVars
 
     public static string entryPosition = "center";
 
+    public static Color lastColor;
+
     public static void UpdateLastScore(float newScore) {
         lastScore = newScore;
     }
@@ -15,6 +17,12 @@ public static class StaticVars
     public static void setEntryPosition(string newEntryPosition) {
         entryPosition = newEntryPosition;
     }
+
+    public static void SetLastColor(Color newColor) {
+        lastColor = newColor;
+    }
+
+    
 
 
 }

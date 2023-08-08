@@ -29,10 +29,17 @@ public class PlayerColorChange : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         trail = GetComponent<TrailRenderer>();
-        spriteRenderer.color = colorA;
-        playerLight.color = colorA;
-        trail.startColor = colorA;
-        var tempColor = colorA;
+
+        if (StaticVars.lastColor == colorB) {
+            spriteRenderer.color = colorB;
+        }
+        else {
+            spriteRenderer.color = colorA;
+        }
+        
+        playerLight.color = spriteRenderer.color;
+        trail.startColor = spriteRenderer.color;
+        var tempColor = spriteRenderer.color;
         tempColor.a = 0;
         trail.endColor = tempColor;
     }

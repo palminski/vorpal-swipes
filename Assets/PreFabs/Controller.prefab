@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7692953055034059216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3709548668854621301}
+  - component: {fileID: 6015119621926053006}
+  - component: {fileID: 3300133895820352340}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: Controller
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3709548668854621301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692953055034059216}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -34, y: 9.5, z: -0.29101646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6015119621926053006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692953055034059216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c160e649493dd44083073dd3ad7ea00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScoreTable: {fileID: 0}
+  mainMenu: {fileID: 0}
+  startingSinkSpeed: 0.05
+  sinkSpeedIncrease: 0.0001
+  maxSinkSpeed: 0.17
+  transition: {fileID: 0}
+  transitionTime: 0.4
+  Levels:
+  - {fileID: 8028272455266058598, guid: 02682b183ccf4f54b97bf2a9666865b2, type: 3}
+  - {fileID: 447961112087709739, guid: 0388aee5d2599e945a844152c063e33e, type: 3}
+  - {fileID: 4112944140120433143, guid: 698e640927d65b244aa267448162fcd5, type: 3}
+  - {fileID: 4906814140213589399, guid: b3c3aee678cb425428b01143bd838cb8, type: 3}
+  - {fileID: 4084900852860778021, guid: c7b47dfa113135b49924226366219cfa, type: 3}
+--- !u!114 &3300133895820352340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692953055034059216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee4b1ea5f8361143af06aec14f81cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPools:
+  - tag: Rubble
+    prefab: {fileID: 7104419677167498889, guid: c2ace9d894559794aaf58885a4f2823b, type: 3}
+    size: 16
+  - tag: Blood
+    prefab: {fileID: 379689241562205024, guid: 83fb9ae95b81e1845ab59e4031264931, type: 3}
+    size: 5
+  - tag: ColorBurst
+    prefab: {fileID: 4444688741697159139, guid: 2d1a30f73c02c4e49b1258af69737fa2, type: 3}
+    size: 2
