@@ -14,7 +14,7 @@ public static class PoolManager
     {
         //create dictionary of pools
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
-        Debug.Log("Hello, I am the pool manager");
+
     }
 
     public static void AddNewPool(string tag, Queue<GameObject> pool)
@@ -86,12 +86,7 @@ public static class PoolManager
         return pulledObject;
     }
 
-    #region Debugging
-    public static void Greet()
-    {
-        Debug.Log("Hello World");
-    }
-    #endregion
+
 
 
 }

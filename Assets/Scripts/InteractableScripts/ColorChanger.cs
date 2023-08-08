@@ -28,11 +28,9 @@ public class ColorChanger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(playerColorChange.colorA + " " + playerColorChange.colorB);
-            Debug.Log("this color: " + spriteRenderer.color);
+
             if (playerColorChange.colorA != spriteRenderer.color && playerColorChange.colorB != spriteRenderer.color)
             {
-                Debug.Log("color changed");
                 playerColorChange.SetNewColor(spriteRenderer.color);
             }
 
