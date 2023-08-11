@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyFlyDown : MonoBehaviour
 {
     [SerializeField]
     [Range(-100, 0)]
@@ -11,18 +11,23 @@ public class EnemyPatrol : MonoBehaviour
     [Range(0, 100)]
     private float rightBound;
     [SerializeField]
+    private float vSpeed = 0.01f;
+    [SerializeField]
+    private float hSpeed = 1;
 
-    private float speed;
+    [SerializeField]
+    private float easeAmount;
+
     private Rigidbody2D rigidBody;
 
-
-    private float currentTarget;
     private float leftTarget;
     private float rightTarget;
 
-    private bool still = false;
+    
 
-    public Animator animator;
+
+
+    private Animator animator;
 
     private Vector3 startingScale;
     // Start is called before the first frame update
@@ -32,43 +37,29 @@ public class EnemyPatrol : MonoBehaviour
         startingScale = transform.localScale;
         rigidBody = GetComponent<Rigidbody2D>();
 
-        if (rightBound == 0 && leftBound == 0) still = true;
 
         leftTarget = gameObject.transform.position.x + leftBound;
         rightTarget = gameObject.transform.position.x + rightBound;
 
-        currentTarget = rightTarget;
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        float preUpdatedXVelocity = rigidBody.velocity.x;
         transform.localScale = Vector3.Scale(startingScale, new Vector3(Mathf.Sign(rigidBody.velocity.x),1,1));
 
-        if (!still)
-        {
-            //determine velocity based on current target x coord
-            if (currentTarget == rightTarget)
-            {
-                rigidBody.velocity = new Vector2(speed, 0);
-            }
-            else
-            {
-                rigidBody.velocity = new Vector2(-speed, 0);
-            }
+        float easedX = Mathf.SmoothStep(leftTarget,rightTarget,Mathf.PingPong(Time.time*easeAmount,1));
+        Vector2 targetPosition = new Vector2(easedX, transform.position.y);
+        Vector2 velocity = hSpeed * (targetPosition - rigidBody.position) / Time.fixedDeltaTime;
+        rigidBody.velocity = velocity + new Vector2(0,-vSpeed);
 
-            if (transform.position.x >= rightTarget && currentTarget == rightTarget)
-            {
-                animator.SetTrigger("Turn");
-                currentTarget = leftTarget;
-            }
-            if (transform.position.x <= leftTarget && currentTarget == leftTarget)
-            {
-                currentTarget = rightTarget;
-                animator.SetTrigger("Turn");
-            }
-        }
+        //turn if velocity swapped
+        if (Mathf.Sign(preUpdatedXVelocity) != Mathf.Sign(rigidBody.velocity.x)) animator.SetTrigger("Turn");
+
+        //Y should always decrease by set ammount
+        // transform.position -= new Vector3(0,vSpeed,0);
 
     }
 
