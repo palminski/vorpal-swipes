@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 866525253989883171}
   - component: {fileID: 2797648846059590782}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnemyLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.712
-  m_Color: {r: 0, g: 1, b: 0.95107245, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5.53
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1041295740041560039}
   - component: {fileID: 5227613640697835843}
   - component: {fileID: 2117807604819335101}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Skeletator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 1643564468485218014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 9.05, z: 0}
+  m_LocalPosition: {x: -1.37, y: 9.05, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 8406724522077000197}
   - component: {fileID: 1174565333469960423}
   - component: {fileID: 4253435681615279976}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.92019224, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5133,7 +5133,7 @@ GameObject:
   - component: {fileID: 8633082864621269356}
   - component: {fileID: 854044122596999907}
   - component: {fileID: 3789242638680035299}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

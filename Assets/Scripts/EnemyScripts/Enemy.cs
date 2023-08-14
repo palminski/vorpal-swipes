@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Rendering.Universal;
 
 public class Enemy : MonoBehaviour
 
@@ -28,13 +26,18 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Sprite rightCorpse;
 
+    private Light2D associatedLight;
+    private ParticleSystem ps;
+    
+
 
 
     // Start is called before the first frame update
     void Start()
     {
 
-        
+        associatedLight = GetComponentInChildren<Light2D>();
+        ps = GetComponentInChildren<ParticleSystem>();
 
         player = GameObject.FindWithTag("Player");
 
@@ -59,7 +62,15 @@ public class Enemy : MonoBehaviour
             spriteRendererToColor = GetComponent<SpriteRenderer>();
             corpseColor = enemyColor;
         }
+
         spriteRendererToColor.color = enemyColor;
+        associatedLight.color = enemyColor;
+        if (ps) {
+            
+            ParticleSystem.MainModule mainModule = ps.main;
+            mainModule.startColor = enemyColor;
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
