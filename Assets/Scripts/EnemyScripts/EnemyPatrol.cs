@@ -60,16 +60,29 @@ public class EnemyPatrol : MonoBehaviour
 
             if (transform.position.x >= rightTarget && currentTarget == rightTarget)
             {
-                animator.SetTrigger("Turn");
+                if (HasTriggerParam("Turn")) animator.SetTrigger("Turn");
                 currentTarget = leftTarget;
             }
             if (transform.position.x <= leftTarget && currentTarget == leftTarget)
             {
                 currentTarget = rightTarget;
-                animator.SetTrigger("Turn");
+                if (HasTriggerParam("Turn")) animator.SetTrigger("Turn");
             }
         }
 
+    }
+
+    private bool HasTriggerParam(string paramName) {
+
+        AnimatorControllerParameter[] parameters = animator.parameters;
+
+        foreach(AnimatorControllerParameter parameter in parameters) {
+            if (parameter.name == paramName && parameter.type == AnimatorControllerParameterType.Trigger) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void OnDrawGizmos()

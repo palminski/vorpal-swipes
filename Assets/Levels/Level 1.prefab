@@ -22019,11 +22019,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 559093335212838377, guid: 2b612a2e64303664c94428671a88e5b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.04
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 559093335212838377, guid: 2b612a2e64303664c94428671a88e5b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.74
+      value: 34.5
       objectReference: {fileID: 0}
     - target: {fileID: 559093335212838377, guid: 2b612a2e64303664c94428671a88e5b4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22060,6 +22060,14 @@ PrefabInstance:
     - target: {fileID: 2337153404753156559, guid: 2b612a2e64303664c94428671a88e5b4, type: 3}
       propertyPath: m_Name
       value: DeadheadWave
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912817833856984212, guid: 2b612a2e64303664c94428671a88e5b4, type: 3}
+      propertyPath: leftBound
+      value: -2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912817833856984212, guid: 2b612a2e64303664c94428671a88e5b4, type: 3}
+      propertyPath: rightBound
+      value: 2.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

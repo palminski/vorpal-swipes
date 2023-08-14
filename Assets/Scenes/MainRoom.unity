@@ -1553,6 +1553,7 @@ GameObject:
   - component: {fileID: 700509944}
   - component: {fileID: 700509946}
   - component: {fileID: 700509945}
+  - component: {fileID: 700509947}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -10670,6 +10671,27 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!95 &700509947
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700509943}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5a8d5bf7b0d2534e8cc7ca231d9ca13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &703467658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20447,6 +20469,14 @@ PrefabInstance:
       propertyPath: highScoreTable
       value: 
       objectReference: {fileID: 1183823420}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: Levels.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: Levels.Array.data[5]
+      value: 
+      objectReference: {fileID: 4084900852860778021, guid: bb29f6784e62bd441978f4d996c22945, type: 3}
     - target: {fileID: 7692953055034059216, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: m_Name
       value: Controller
@@ -20484,6 +20514,10 @@ PrefabInstance:
     - target: {fileID: 2523387936999002651, guid: 3a80ad949bae7ea49a2d46f580dfd0a6, type: 3}
       propertyPath: m_Name
       value: KillWall Bottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523387936999002651, guid: 3a80ad949bae7ea49a2d46f580dfd0a6, type: 3}
+      propertyPath: m_TagString
+      value: KillWall
       objectReference: {fileID: 0}
     - target: {fileID: 2905054699062913704, guid: 3a80ad949bae7ea49a2d46f580dfd0a6, type: 3}
       propertyPath: m_RootOrder
