@@ -9,6 +9,7 @@ TagManager:
   - Controller
   - Breaker
   - PauseMenu
+  - KillWall
   layers:
   - Default
   - TransparentFX
