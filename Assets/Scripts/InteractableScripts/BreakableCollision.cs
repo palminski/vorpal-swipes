@@ -9,6 +9,9 @@ public class BreakableCollision : MonoBehaviour
 
     [SerializeField]
     private bool startColorIsA = true;
+    
+    [SerializeField]
+    private bool waitUntilStart = false;
 
     GameObject player;
     private SpriteRenderer playerSpriteRenderer;
@@ -37,17 +40,27 @@ public class BreakableCollision : MonoBehaviour
             playerRB = player.GetComponent<Rigidbody2D>();
         }
 
-
-        if (startColorIsA) {
+        if (waitUntilStart) {
+            spriteRenderer.color = Color.white;
+        }
+        else if (startColorIsA) {
             spriteRenderer.color = playerColorChange.colorA;
         }
         else {
             spriteRenderer.color = playerColorChange.colorB;
         }
+
+        
     }
 
 
     void FixedUpdate() {
+
+        if (waitUntilStart == true && ControllerScript.Controller.SinkSpeed != 0) {
+            spriteRenderer.color = playerSpriteRenderer.color;
+            waitUntilStart = false;
+        }
+
         if (playerSpriteRenderer.color != spriteRenderer.color) {
             boxCollider.usedByComposite = true;
 
