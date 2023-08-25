@@ -28,8 +28,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Leap(Vector2 direction)
     {
+        //check if level has actually started so player doesnt die before game begins
+        if (ControllerScript.Controller.SinkSpeed == 0 && direction == new Vector2(0, 1)) return;
+
         if (Rigidbody.velocity.normalized * -1 != direction)
         {
+            Rigidbody.velocity = new Vector2(direction.x * jumpForce, direction.y * jumpForce);
+            animator.SetBool("Moving", true);
             //Rotate Player
             //down
             if (direction == new Vector2(0, -1))
@@ -44,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             //up
             else if (direction == new Vector2(0, 1))
             {
-                gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 180);
+                if (ControllerScript.Controller.SinkSpeed != 0) gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 180);
             }
             //left
             else if (direction == new Vector2(-1, 0))
@@ -53,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
 
-            Rigidbody.velocity = new Vector2(direction.x * jumpForce, direction.y * jumpForce);
+            
         }
 
 
