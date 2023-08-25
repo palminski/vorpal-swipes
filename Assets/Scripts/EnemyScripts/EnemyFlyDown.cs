@@ -53,7 +53,8 @@ public class EnemyFlyDown : MonoBehaviour
         float easedX = Mathf.SmoothStep(leftTarget, rightTarget, Mathf.PingPong(Time.time * easeAmount, 1));
         Vector2 targetPosition = new Vector2(easedX, transform.position.y);
         Vector2 velocity = hSpeed * (targetPosition - rigidBody.position) / Time.fixedDeltaTime;
-        rigidBody.velocity = new Vector2(velocity.x, -vSpeed);
+        if (ControllerScript.Controller.SinkSpeed != 0) rigidBody.velocity = new Vector2(velocity.x, -vSpeed);
+        
 
         //turn if velocity swapped
         if (Mathf.Sign(preUpdatedXVelocity) != Mathf.Sign(rigidBody.velocity.x) && HasTriggerParam("Turn")) animator.SetTrigger("Turn");

@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointValue: 200
-  leftCorpse: {fileID: -475530800, guid: 0b94ce4fb8751064b8a1ef104ed115fe, type: 3}
-  rightCorpse: {fileID: -475530800, guid: 0b94ce4fb8751064b8a1ef104ed115fe, type: 3}
+  leftCorpse: {fileID: 21300000, guid: 5d52a6dfc6d1aec45a09ad8d3efd3c7a, type: 3}
+  rightCorpse: {fileID: 21300000, guid: 4468bfb2f54a48e46aed42aa37d48798, type: 3}
 --- !u!61 &5438598920126164
 BoxCollider2D:
   m_ObjectHideFlags: 0
