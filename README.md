@@ -12,13 +12,13 @@
   
   ## Description
  
-  Hello! This is a mobile endless runner game with a fantasy dungeon aestetic. It has been built using Unity version 2022.3.5 and C#. It will be available on app stores at a later date, but if you would like to try it out now I can provide access to a development build that can be played.
+  Hello! This is a mobile endless runner game with a fantasy dungeon aesthetic. It has been built using Unity version 2022.3.5 and C#. It will be available on app stores at a later date, but if you would like to try it out now I can provide access to a development build that can be played.
 
   ## Usage
   
-  To try out the game you will need to download the APK (available below) and select to install it in your phones file system. For the time being this can only be done on Android devices. Once the game is installed simply select it from your apps to begin playing it. 
+  To try out the game you will need to download the APK ([available below](#download)) and select to install it in your phone's file system. For the time being this can only be done on Android devices. Once the game is installed simply select it from your apps to begin playing it. 
   
-  The controlls are quite simple: Swipe to move and tap to change colors. Enemies and blocks can be destroyred by matching their color, but hitting an enemy that is not the same color as you will result in a game over. You can change direction at any time by swiping again, however you will be unable to move in the oposite direction you are currently moving. For example, if you are currently moving up you will only be able to swipe left or right. Make sure to not go too far off the screen or hit any spikes, as thos will also result in a game over.
+  The controls are quite simple: Swipe to move and tap to change colors. Enemies and blocks can be destroyed by matching their color, but hitting an enemy that is not the same color as you will result in a game over. You can change direction at any time by swiping again, however you will be unable to move in the opposite direction you are currently moving. For example, if you are currently moving up you will only be able to swipe left or right. Make sure to not go too far off the screen or hit any spikes, as those will also result in a game over.
   
   ## Technologies
     - C#
@@ -40,10 +40,10 @@
   
   ## Images
 
-  <img src="./Screenshot_20230825-122628.PNG">
-  <img src="./Screenshot_20230825-122648.PNG">
-  <img src="./Screenshot_20230825-122739.PNG">
-  <img src="./Screenshot_20230825-122749.PNG">
+  <img src="./Screenshot_20230825-122628.png">
+  <img src="./Screenshot_20230825-122648.png">
+  <img src="./Screenshot_20230825-122739.png">
+  <img src="./Screenshot_20230825-122749.png">
 
 
   ## Download
