@@ -28,8 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Leap(Vector2 direction)
     {
-        //check if level has actually started so player doesnt die before game begins
-        if (ControllerScript.Controller.SinkSpeed == 0 && direction == new Vector2(0, 1)) return;
+
 
         if (Rigidbody.velocity.normalized * -1 != direction)
         {
@@ -49,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
             //up
             else if (direction == new Vector2(0, 1))
             {
-                if (ControllerScript.Controller.SinkSpeed != 0) gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 180);
+                gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 180);
             }
             //left
             else if (direction == new Vector2(-1, 0))
