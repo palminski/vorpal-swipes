@@ -27,6 +27,7 @@ public class FallingBone : MonoBehaviour
         {
             playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
         }
+        corpseColor = spriteRenderer.color;
     }
 
     // Update is called once per frame
