@@ -7,6 +7,9 @@ public class AfterImage : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer playerSpriteRenderer;
+
+    [Range(0.01f,1f)]
+    public float fadeSpeed = 0.03f;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,13 +36,15 @@ public class AfterImage : MonoBehaviour
 
     void SwapColor()
     {
-        spriteRenderer.color = playerSpriteRenderer.color;
+        Color newColor = playerSpriteRenderer.color;
+        newColor.a = spriteRenderer.color.a;
+        spriteRenderer.color = newColor;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Utilities.Fade(spriteRenderer);
+        Utilities.Fade(spriteRenderer,fadeSpeed);
         if (spriteRenderer.color.a <= 0)
         {
             gameObject.SetActive(false);
