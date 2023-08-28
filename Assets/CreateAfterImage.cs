@@ -5,12 +5,12 @@ using UnityEngine;
 public class CreateAfterImage : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public int framesBetweenImage = 1;
-    private int countdown;
+    [Range(0,1)]public float newImageTime = 1;
+    private float countdown;
     // Start is called before the first frame update
     void Start()
     {
-        countdown = framesBetweenImage;
+        countdown = 1;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -19,10 +19,10 @@ public class CreateAfterImage : MonoBehaviour
     {
         if (rb.velocity != new Vector2(0,0)) {
             if (countdown <= 0) {
-                countdown = framesBetweenImage;
+                countdown = 1;
                 PoolManager.PullFromPool("AfterImage",transform.position,transform.rotation, transform.localScale);
             }
-            countdown --;
+            countdown -= newImageTime;
         }
     }
 }

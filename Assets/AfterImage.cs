@@ -15,6 +15,9 @@ public class AfterImage : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerSpriteRenderer = GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = playerSpriteRenderer.sprite;
+            Utilities.ResetColor(spriteRenderer);
+            SwapColor();
     }
 
     void OnEnable()

@@ -22,6 +22,17 @@ public static class Utilities
         spriteRenderer.color = newColor;
     }
 
+    public static void SnapToGrid(Transform transform) {
+        var currentPosition = transform.position;
+        transform.position = new Vector3(Mathf.Round(currentPosition.x),Mathf.Round(currentPosition.y),Mathf.Round(currentPosition.z));
+    }
+
+    public static Color ConvertColorHTML(Color colorToConvert) {
+
+        ColorUtility.TryParseHtmlString("#"+ColorUtility.ToHtmlStringRGB(colorToConvert), out colorToConvert);
+        
+        return colorToConvert;
+    }
     
 
 }

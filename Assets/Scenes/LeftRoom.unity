@@ -2776,6 +2776,9 @@ MonoBehaviour:
   - tag: ColorBurst
     prefab: {fileID: 4444688741697159139, guid: 2d1a30f73c02c4e49b1258af69737fa2, type: 3}
     size: 2
+  - tag: AfterImage
+    prefab: {fileID: 811628496189488692, guid: c1ccfc06347c2d741999e4fd30880b60, type: 3}
+    size: 15
 --- !u!212 &1071356683
 SpriteRenderer:
   m_ObjectHideFlags: 0
