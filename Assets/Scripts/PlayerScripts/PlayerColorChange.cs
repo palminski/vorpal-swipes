@@ -8,7 +8,7 @@ public class PlayerColorChange : MonoBehaviour
 {
 
     private SpriteRenderer spriteRenderer;
-    private TrailRenderer trail;
+    
     public Light2D playerLight;
 
     [SerializeField]
@@ -28,7 +28,6 @@ public class PlayerColorChange : MonoBehaviour
         ColorUtility.TryParseHtmlString("#"+PlayerPrefs.GetString("colorB","F000FF"), out colorB);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        trail = GetComponent<TrailRenderer>();
 
         if (StaticVars.lastColor == colorB) {
             spriteRenderer.color = colorB;
@@ -38,10 +37,7 @@ public class PlayerColorChange : MonoBehaviour
         }
         
         playerLight.color = spriteRenderer.color;
-        trail.startColor = spriteRenderer.color;
-        var tempColor = spriteRenderer.color;
-        tempColor.a = 0;
-        trail.endColor = tempColor;
+        
     }
 
     public void SwapColor() {
@@ -55,9 +51,7 @@ public class PlayerColorChange : MonoBehaviour
             colorToSwapTo = colorA;
         }
         spriteRenderer.color = colorToSwapTo;
-            trail.startColor = colorToSwapTo;
-            colorToSwapTo.a = 0;
-            trail.endColor = colorToSwapTo;
+            
 
         playerLight.color = spriteRenderer.color;
 
@@ -86,9 +80,7 @@ public class PlayerColorChange : MonoBehaviour
         
         //strat by changing the players color
         spriteRenderer.color = colorToSet;
-        trail.startColor = colorToSet;
-        colorToSet.a = 0;
-        trail.endColor = colorToSet;
+
         playerLight.color = spriteRenderer.color;
 
         //Color Change Action
