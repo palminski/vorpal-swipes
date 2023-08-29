@@ -34,6 +34,10 @@ public static class PoolManager
 
         GameObject pulledObject = poolDictionary[tag].Dequeue();
 
+        if (pulledObject.activeSelf) {
+            pulledObject.SetActive(false);
+        }
+
         pulledObject.SetActive(true);
         pulledObject.transform.localScale = new Vector3(1, 1, 1);
         pulledObject.transform.position = position;
@@ -55,6 +59,10 @@ public static class PoolManager
 
 
         GameObject pulledObject = poolDictionary[tag].Dequeue();
+
+        if (pulledObject.activeSelf) {
+            pulledObject.SetActive(false);
+        }
 
         pulledObject.SetActive(true);
         pulledObject.transform.localScale = scale;

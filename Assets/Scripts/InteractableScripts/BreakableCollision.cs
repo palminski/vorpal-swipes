@@ -13,6 +13,9 @@ public class BreakableCollision : MonoBehaviour
     [SerializeField]
     private bool waitUntilStart = false;
 
+    [SerializeField]
+    private bool unchanging = false;
+
     GameObject player;
     private SpriteRenderer playerSpriteRenderer;
     private PlayerColorChange playerColorChange;
@@ -24,6 +27,8 @@ public class BreakableCollision : MonoBehaviour
     private BoxCollider2D boxCollider;
 
     public Sprite BrokenPieceSprite;
+
+   
 
 
     // Start is called before the first frame update
@@ -39,8 +44,10 @@ public class BreakableCollision : MonoBehaviour
             playerColorChange = player.GetComponent<PlayerColorChange>();
             playerRB = player.GetComponent<Rigidbody2D>();
         }
-
-        if (waitUntilStart) {
+        if (unchanging) {
+            return;
+        }
+        else if (waitUntilStart) {
             spriteRenderer.color = Color.white;
         }
         else if (startColorIsA) {
