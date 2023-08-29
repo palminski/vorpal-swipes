@@ -20,7 +20,7 @@ public class ColorChanger : MonoBehaviour
         playerColorChange = player.GetComponent<PlayerColorChange>();
 
         //This converts the color to an HTML RGB string and back so that it matches the process dont to the player pref colors and prevents very slight color variatoins making player essentially able to be same color twice'
-        spriteRenderer.color = (ConvertColorHTML(spriteRenderer.color));
+        spriteRenderer.color = Utilities.ConvertColorHTML(spriteRenderer.color);
     }
 
     // Update is called once per frame
@@ -37,10 +37,5 @@ public class ColorChanger : MonoBehaviour
         }
     }
 
-    private Color ConvertColorHTML(Color colorToConvert) {
 
-        ColorUtility.TryParseHtmlString("#"+ColorUtility.ToHtmlStringRGB(colorToConvert), out colorToConvert);
-        
-        return colorToConvert;
-    }
 }

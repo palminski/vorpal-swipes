@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         if (Rigidbody.velocity.normalized * -1 != direction)
         {
             Rigidbody.velocity = new Vector2(direction.x * jumpForce, direction.y * jumpForce);
+           
             animator.SetBool("Moving", true);
             //Rotate Player
             //down

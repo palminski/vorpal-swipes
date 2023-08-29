@@ -41,6 +41,8 @@ public class Collectable : MonoBehaviour
             Object.Destroy(this.gameObject);
             ControllerScript.Controller.IncreaseScore(pointValue);
             ControllerScript.Controller.addCoins(coinValue);
+            GameObject colorBurst = PoolManager.PullWithoutRotation("ColorBurst", transform.position);
+            if (colorBurst) colorBurst.GetComponent<ColorChangeBurst>().ColorBurst(Color.yellow);
         }
     }
 }
