@@ -7,8 +7,14 @@ public class PlayerDeath : MonoBehaviour
 {
 
     public Light2D playerLight;
+    public bool playerDead = false;
+
+    public void Start() {
+        playerDead = false;
+    }
     public void KillPlayer() {
 
+        playerDead = true;
         if (playerLight) Instantiate(playerLight, transform.position, transform.rotation);
         
         
