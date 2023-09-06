@@ -10,6 +10,8 @@ public static class StaticVars
 
     public static Color lastColor;
 
+    
+
     public static void UpdateLastScore(float newScore) {
         lastScore = newScore;
     }

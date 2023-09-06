@@ -14,6 +14,7 @@ public class PauseScreen : MonoBehaviour
     void Awake()
     {
         pauseText = GetComponentInChildren<TextMeshProUGUI>();
+        
         playerSpriteRenderer = GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>();
     }
 
