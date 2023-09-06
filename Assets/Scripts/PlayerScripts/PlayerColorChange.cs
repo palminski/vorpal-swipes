@@ -11,6 +11,8 @@ public class PlayerColorChange : MonoBehaviour
     
     public Light2D playerLight;
 
+    private PlayerDeath playerDeath;
+
     [SerializeField]
     public Color colorA = Color.green;
     [SerializeField]
@@ -28,6 +30,7 @@ public class PlayerColorChange : MonoBehaviour
         ColorUtility.TryParseHtmlString("#"+PlayerPrefs.GetString("colorB","F000FF"), out colorB);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerDeath = GetComponent<PlayerDeath>();
 
         if (StaticVars.lastColor == colorB) {
             spriteRenderer.color = colorB;
@@ -41,7 +44,7 @@ public class PlayerColorChange : MonoBehaviour
     }
 
     public void SwapColor() {
-        if (Time.timeScale == 0) return;
+        if (Time.timeScale == 0 || playerDeath.playerDead) return;
         Color colorToSwapTo;
 
         if (spriteRenderer.color == colorA) {

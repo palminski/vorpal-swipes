@@ -62,6 +62,7 @@ public class ControllerScript : MonoBehaviour
         SinkSpeed = 0;
         player = GameObject.FindWithTag("Player");
         pauseMenu = GameObject.FindWithTag("PauseMenu");
+        
 
         //default collection
         Collection collection = new Collection { collectedItems = new List<string>(), collectedCoins = 0 };
@@ -88,7 +89,7 @@ public class ControllerScript : MonoBehaviour
         if (SinkSpeed < maxSinkSpeed)
         {
             //for now it will not scroll until the sink speed is initially set
-            if (SinkSpeed != 0) UpdateSinkSpeed(sinkSpeedIncrease);
+            //if (SinkSpeed != 0) UpdateSinkSpeed(sinkSpeedIncrease);
         }
         else
         {
@@ -102,6 +103,7 @@ public class ControllerScript : MonoBehaviour
         UpdateHighScores(Score);
         StaticVars.UpdateLastScore(Score);
         LoadNextLevel("GameOverScreen");
+        
         if (player)
         {
             player.GetComponent<PlayerDeath>().KillPlayer();
