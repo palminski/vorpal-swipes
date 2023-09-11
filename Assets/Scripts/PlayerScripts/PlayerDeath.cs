@@ -9,7 +9,10 @@ public class PlayerDeath : MonoBehaviour
     public Light2D playerLight;
     public bool playerDead = false;
 
+    private SpriteRenderer sr;
+
     public void Start() {
+        sr = GetComponent<SpriteRenderer>();
         playerDead = false;
     }
     public void KillPlayer() {
@@ -20,7 +23,7 @@ public class PlayerDeath : MonoBehaviour
         
         GameObject blood = PoolManager.PullWithoutRotation("Blood", transform.position);
         
-        if (blood) blood.GetComponent<BloodScript>().Splatter();
+        if (blood) blood.GetComponent<BloodScript>().Splatter(sr.color);
 
         transform.position = new Vector3 (1000,0,0);
     }

@@ -142,7 +142,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0019531548, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -153,7 +153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32419688, y: 1}
+  m_Size: {x: 0.79899204, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &-1528208480790233678
 MonoBehaviour:
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 100
   coinValue: 50
-  magneticDist: 3
+  magneticDist: 0
   isPermanentCollectable: 1
   collectableStringKey: PurpleKey
 --- !u!114 &4164947329343212346
