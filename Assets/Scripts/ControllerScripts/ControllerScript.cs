@@ -130,6 +130,11 @@ public class ControllerScript : MonoBehaviour
 
     public void debugFunction()
     {
+
+        foreach (string Item in CollectedItems) {
+            Debug.Log(Item);
+        }
+        
         CollectedItems.Clear();
         addCoins(9999);
         SaveData();
@@ -168,6 +173,9 @@ public class ControllerScript : MonoBehaviour
             if (pauseMenu)
             {
                 pauseMenu.SetActive(true);
+            }
+            else {
+                Debug.Log("No Pause Menu");
             }
         }
     }
