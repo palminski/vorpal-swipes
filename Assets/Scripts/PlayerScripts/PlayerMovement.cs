@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
             if (direction == new Vector2(0, -1))
             {
                 gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 0);
+                
 
             }
             //right
@@ -78,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
             else if (direction == new Vector2(0, 1))
             {
                 gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 180);
+                
 
             }
             //left

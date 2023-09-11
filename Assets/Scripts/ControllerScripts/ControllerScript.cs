@@ -130,6 +130,11 @@ public class ControllerScript : MonoBehaviour
 
     public void debugFunction()
     {
+
+        foreach (string Item in CollectedItems) {
+            Debug.Log(Item);
+        }
+        
         CollectedItems.Clear();
         addCoins(9999);
         SaveData();
