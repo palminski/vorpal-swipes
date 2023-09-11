@@ -174,6 +174,9 @@ public class ControllerScript : MonoBehaviour
             {
                 pauseMenu.SetActive(true);
             }
+            else {
+                Debug.Log("No Pause Menu");
+            }
         }
     }
 

@@ -24,9 +24,6 @@ public class CreateAfterImage : MonoBehaviour
             }
             countdown -= newImageTime;
         }
-        else
-        {
-            countdown = 2;
-        }
+        
     }
 }
