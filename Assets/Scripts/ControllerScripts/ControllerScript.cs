@@ -54,6 +54,10 @@ public class ControllerScript : MonoBehaviour
         public int collectedCoins;
     }
 
+    //Audio Effects
+    private GameObject soundEffectManager;
+    private SoundEffectManager SFXManager;
+
 
     private void Awake()
     {
@@ -62,6 +66,9 @@ public class ControllerScript : MonoBehaviour
         SinkSpeed = 0;
         player = GameObject.FindWithTag("Player");
         pauseMenu = GameObject.FindWithTag("PauseMenu");
+
+        soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffectManager");
+        if (soundEffectManager) SFXManager = soundEffectManager.GetComponent<SoundEffectManager>();
         
 
         //default collection
@@ -161,14 +168,12 @@ public class ControllerScript : MonoBehaviour
 
     public void PauseGame()
     {
-
         if (Time.timeScale == 0)
         {
             Time.timeScale = 1;
         }
         else
         {
-
             Time.timeScale = 0;
             if (pauseMenu)
             {
@@ -215,6 +220,10 @@ public class ControllerScript : MonoBehaviour
 
         //loadScene
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void PlaySound (AudioClip audioClip) {
+        if (SFXManager) SFXManager.playEffect(audioClip);
     }
 }
 

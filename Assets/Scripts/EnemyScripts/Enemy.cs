@@ -33,6 +33,9 @@ public class Enemy : MonoBehaviour
 
     private bool isColliding = false;
 
+    [SerializeField]
+    private AudioClip deathSound;
+
 
 
 
@@ -92,6 +95,7 @@ public class Enemy : MonoBehaviour
             }
             else if (playerRB.velocity != new Vector2(0, 0))
             {
+                if (deathSound) ControllerScript.Controller.PlaySound(deathSound);
                 Object.Destroy(this.gameObject);
                 ControllerScript.Controller.IncreaseScore(pointValue);
 

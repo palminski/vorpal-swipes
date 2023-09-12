@@ -20,11 +20,16 @@ public class Collectable : MonoBehaviour
 
     private Transform playerTransform;
 
+
+    [SerializeField]
+    private AudioClip audioClip;
+
     
 
     private void Start()
     {
         playerTransform = GameObject.Find("Player").transform;
+
     }
 
     private void Update()
@@ -48,6 +53,7 @@ public class Collectable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            if (audioClip) ControllerScript.Controller.PlaySound(audioClip);
             Object.Destroy(this.gameObject);
             ControllerScript.Controller.IncreaseScore(pointValue);
             ControllerScript.Controller.addCoins(coinValue);

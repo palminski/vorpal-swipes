@@ -102,6 +102,7 @@ MonoBehaviour:
   waitUntilStart: 0
   unchanging: 1
   BrokenPieceSprite: {fileID: 21300000, guid: 8e671a3936620d44bbbd2239a1b0ff04, type: 3}
+  audioClip: {fileID: 8300000, guid: f1eb1abacdb03ca4695790470dffdd5f, type: 3}
 --- !u!61 &3821994497902358305
 BoxCollider2D:
   m_ObjectHideFlags: 0

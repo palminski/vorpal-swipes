@@ -172,6 +172,7 @@ MonoBehaviour:
   magneticDist: 0
   isPermanentCollectable: 1
   collectableStringKey: PurpleKey
+  audioClip: {fileID: 8300000, guid: 50b8909e33ca2954db90ced15fb35394, type: 3}
 --- !u!114 &4164947329343212346
 MonoBehaviour:
   m_ObjectHideFlags: 0
