@@ -28,7 +28,13 @@ public class Enemy : MonoBehaviour
 
     private Light2D associatedLight;
     private ParticleSystem ps;
-    
+
+    private Rigidbody2D playerRB;
+
+    private bool isColliding = false;
+
+
+
 
 
 
@@ -41,10 +47,12 @@ public class Enemy : MonoBehaviour
 
         player = GameObject.FindWithTag("Player");
 
+
         if (player != null)
         {
             playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
             playerColorChange = player.GetComponent<PlayerColorChange>();
+            playerRB = player.GetComponent<Rigidbody2D>();
         }
 
 
@@ -65,38 +73,86 @@ public class Enemy : MonoBehaviour
 
         spriteRendererToColor.color = enemyColor;
         associatedLight.color = enemyColor;
-        if (ps) {
-            
+        if (ps)
+        {
+
             ParticleSystem.MainModule mainModule = ps.main;
             mainModule.startColor = enemyColor;
         }
-        
+
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void FixedUpdate()
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (isColliding)
         {
             if (playerSpriteRenderer.color != spriteRendererToColor.color)
             {
                 ControllerScript.Controller.GameOver();
             }
-            else
+            else if (playerRB.velocity != new Vector2(0, 0))
             {
                 Object.Destroy(this.gameObject);
                 ControllerScript.Controller.IncreaseScore(pointValue);
 
                 GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
-                if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x)*-200), 300));
+                if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x) * -200), 300));
                 GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
-                if (Rubble2) Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x)*200), 300));
+                if (Rubble2) Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x) * 200), 300));
 
                 GameObject blood = PoolManager.PullWithoutRotation("Blood", transform.position);
                 if (blood) blood.GetComponent<BloodScript>().Splatter();
             }
-
         }
     }
+
+    // private void OnCollisionEnter2D(Collider2D other)
+    // {
+
+    //     if (other.gameObject.CompareTag("Player"))
+    //     {
+
+    //         if (playerSpriteRenderer.color != spriteRendererToColor.color)
+    //         {
+    //             ControllerScript.Controller.GameOver();
+    //         }
+    //         else if (playerRB.velocity != new Vector2(0, 0))
+    //         {
+    //             Object.Destroy(this.gameObject);
+    //             ControllerScript.Controller.IncreaseScore(pointValue);
+
+    //             GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
+    //             if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x) * -200), 300));
+    //             GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
+    //             if (Rubble2) Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x) * 200), 300));
+
+    //             GameObject blood = PoolManager.PullWithoutRotation("Blood", transform.position);
+    //             if (blood) blood.GetComponent<BloodScript>().Splatter();
+    //         }
+
+    //     }
+    // }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isColliding = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isColliding = false;
+        }
+    }
+
+
+
+
 
     private void OnDrawGizmos()
     {
