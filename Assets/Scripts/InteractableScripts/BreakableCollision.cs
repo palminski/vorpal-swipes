@@ -28,6 +28,9 @@ public class BreakableCollision : MonoBehaviour
 
     public Sprite BrokenPieceSprite;
 
+    [SerializeField]
+    private AudioClip audioClip;
+
    
 
 
@@ -81,6 +84,8 @@ public class BreakableCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Breaker") && playerRB.velocity != new Vector2(0,0))
         {
+
+            if (audioClip) ControllerScript.Controller.PlaySound(audioClip);
             GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation);
             if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(BrokenPieceSprite, spriteRenderer.color, new Vector2 (-200,300));
             GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, Quaternion.Euler(Vector3.forward * 180));

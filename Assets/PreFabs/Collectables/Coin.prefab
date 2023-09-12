@@ -222,6 +222,7 @@ MonoBehaviour:
   magneticDist: 3.55
   isPermanentCollectable: 0
   collectableStringKey: 
+  audioClip: {fileID: 8300000, guid: 50b8909e33ca2954db90ced15fb35394, type: 3}
 --- !u!95 &-4485126973249723523
 Animator:
   serializedVersion: 5

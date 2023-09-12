@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 5521675983852292904}
   - component: {fileID: -9112921858708690034}
   - component: {fileID: -2546766705769108191}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -213,6 +213,7 @@ MonoBehaviour:
   playerLight: {fileID: 6715548009001644404}
   colorA: {r: 0.027350426, g: 1, b: 0, a: 1}
   colorB: {r: 0.939394, g: 0, b: 1, a: 1}
+  shiftNoise: {fileID: 8300000, guid: fcd4af3963bdd1c4d9b693d19e0e112b, type: 3}
 --- !u!114 &5272034552447570890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLight: {fileID: 6715548009001644404}
   playerDead: 0
+  deathSound: {fileID: 8300000, guid: dc1a989f75d1d874482a34b6a8b9eada, type: 3}
 --- !u!114 &-2546766705769108191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3076158502628607494}
   - component: {fileID: 6715548009001644404}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +378,7 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
-  m_NormalMapQuality: 1
+  m_NormalMapQuality: 0
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 0
   m_ShadowIntensity: 0.75
@@ -409,7 +411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3601075568228724201}
   - component: {fileID: 4208017948606282109}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BreakingBox
   m_TagString: Breaker
   m_Icon: {fileID: 0}

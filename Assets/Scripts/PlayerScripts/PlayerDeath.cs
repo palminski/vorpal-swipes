@@ -11,6 +11,9 @@ public class PlayerDeath : MonoBehaviour
 
     private SpriteRenderer sr;
 
+    [SerializeField]
+    private AudioClip deathSound;
+
     public void Start() {
         sr = GetComponent<SpriteRenderer>();
         playerDead = false;
@@ -18,6 +21,7 @@ public class PlayerDeath : MonoBehaviour
     public void KillPlayer() {
 
         playerDead = true;
+        if (deathSound) ControllerScript.Controller.PlaySound(deathSound);
         if (playerLight) Instantiate(playerLight, transform.position, transform.rotation);
         
         

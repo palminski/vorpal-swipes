@@ -272,6 +272,7 @@ MonoBehaviour:
   spriteRendererToColor: {fileID: 0}
   leftCorpse: {fileID: 21300000, guid: f22041ea16c641d459fa700d98ebbb91, type: 3}
   rightCorpse: {fileID: 21300000, guid: fe6224b8a5c08b646962d7524dea7960, type: 3}
+  deathSound: {fileID: 8300000, guid: f56c9471ab84148459da45711aabfd6f, type: 3}
 --- !u!114 &4912817833856984212
 MonoBehaviour:
   m_ObjectHideFlags: 0

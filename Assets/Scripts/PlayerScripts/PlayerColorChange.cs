@@ -20,6 +20,9 @@ public class PlayerColorChange : MonoBehaviour
 
     public static event Action OnColorChange;
 
+    [SerializeField]
+    private AudioClip shiftNoise;
+
     private void Awake() {
 
 
@@ -61,6 +64,8 @@ public class PlayerColorChange : MonoBehaviour
         GameObject colorBurst = PoolManager.PullWithoutRotation("ColorBurst", transform.position);
         if (colorBurst) colorBurst.GetComponent<ColorChangeBurst>().ColorBurst(spriteRenderer.color);
 
+        if (shiftNoise) ControllerScript.Controller.PlaySound(shiftNoise);
+
         //Color Change Action
         OnColorChange?.Invoke();
         
@@ -85,7 +90,7 @@ public class PlayerColorChange : MonoBehaviour
         spriteRenderer.color = colorToSet;
 
         playerLight.color = spriteRenderer.color;
-
+        if (shiftNoise) ControllerScript.Controller.PlaySound(shiftNoise);
         //Color Change Action
         OnColorChange?.Invoke();
 
