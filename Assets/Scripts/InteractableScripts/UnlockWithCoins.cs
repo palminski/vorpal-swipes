@@ -21,6 +21,9 @@ public class UnlockWithCoins : MonoBehaviour
     [SerializeField]
     private Sprite BrokenPieceSprite;
 
+    [SerializeField]
+    private AudioClip BreakingNoise;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +59,7 @@ public class UnlockWithCoins : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Breaker") && playerRB.velocity != new Vector2(0,0))
         {
-            
+            if (BreakingNoise) ControllerScript.Controller.PlaySound(BreakingNoise);
             ControllerScript.Controller.addCoins(-unlockCost);
             ControllerScript.Controller.addCollectableItem(collectableStringKey);
             GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),Random.Range(0f,360f)));

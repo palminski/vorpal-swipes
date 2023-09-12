@@ -213,6 +213,7 @@ MonoBehaviour:
   playerLight: {fileID: 6715548009001644404}
   colorA: {r: 0.027350426, g: 1, b: 0, a: 1}
   colorB: {r: 0.939394, g: 0, b: 1, a: 1}
+  shiftNoise: {fileID: 8300000, guid: fcd4af3963bdd1c4d9b693d19e0e112b, type: 3}
 --- !u!114 &5272034552447570890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLight: {fileID: 6715548009001644404}
   playerDead: 0
+  deathSound: {fileID: 8300000, guid: dc1a989f75d1d874482a34b6a8b9eada, type: 3}
 --- !u!114 &-2546766705769108191
 MonoBehaviour:
   m_ObjectHideFlags: 0
