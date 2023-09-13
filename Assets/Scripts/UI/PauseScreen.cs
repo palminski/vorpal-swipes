@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 
@@ -10,6 +11,8 @@ public class PauseScreen : MonoBehaviour
     
     private SpriteRenderer playerSpriteRenderer;
     private TextMeshProUGUI pauseText;
+
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,6 +32,14 @@ public class PauseScreen : MonoBehaviour
 
     void OnEnable() {
         pauseText.color = playerSpriteRenderer.color;
+
+        // Image[] images = GetComponentsInChildren<Image>();
+        
+
+        // foreach(Image image in images) {
+        //     image.color = playerSpriteRenderer.color;
+        // }
+        
     }
 
 }

@@ -223,7 +223,7 @@ public class ControllerScript : MonoBehaviour
     }
 
     public void PlaySound (AudioClip audioClip) {
-        if (SFXManager) SFXManager.playEffect(audioClip);
+        if (SFXManager && PlayerPrefs.GetInt("allowSFX", 1) != 0) SFXManager.playEffect(audioClip);
     }
 }
 

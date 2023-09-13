@@ -10,6 +10,7 @@ public class SwapImageColor : MonoBehaviour
 
     private void OnEnable() {
         PlayerColorChange.OnColorChange += SwapColor;
+        SwapColor();
     }
 
     private void OnDisable() {
@@ -17,7 +18,7 @@ public class SwapImageColor : MonoBehaviour
     }
     
     void SwapColor() {
-        thisImage.color = playerSpriteRenderer.color;
+        if (thisImage) thisImage.color = playerSpriteRenderer.color;
     }
 
     void Start() {
