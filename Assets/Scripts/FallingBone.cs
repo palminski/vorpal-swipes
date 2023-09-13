@@ -15,7 +15,7 @@ public class FallingBone : MonoBehaviour
     [SerializeField]
     private Sprite leftCorpse;
     [SerializeField]
-    private Sprite rightCorpse;
+    private AudioClip audioClip;
     private Color corpseColor = Color.white;
     // Start is called before the first frame update
     void Start()
@@ -53,8 +53,8 @@ public class FallingBone : MonoBehaviour
 
                 GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
                 if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(leftCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x) * -200), 300));
-                GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, transform.rotation, transform.localScale);
-                if (Rubble2) Rubble2.GetComponent<Rubble>().SetAttributes(rightCorpse, corpseColor, new Vector2((Mathf.Sign(transform.localScale.x) * 200), 300));
+                if (audioClip) ControllerScript.Controller.PlaySound(audioClip);
+                
             }
 
         }
