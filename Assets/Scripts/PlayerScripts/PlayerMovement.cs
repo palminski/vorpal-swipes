@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 lastDirection;
 
+    [SerializeField]
+    private AudioClip leapSound;
+
 
 
     private Vector2 still = new Vector2(0, 0);
@@ -60,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Rigidbody.velocity = new Vector2(direction.x * jumpForce, direction.y * jumpForce);
             lastDirection = direction;
+            if (leapSound) ControllerScript.Controller.PlaySound(leapSound);
             animator.SetBool("Moving", true);
             //Rotate Player
             //down

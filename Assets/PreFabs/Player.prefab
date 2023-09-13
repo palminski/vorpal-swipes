@@ -140,7 +140,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.9}
+  m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
 --- !u!50 &5159568041441559702
 Rigidbody2D:
@@ -198,6 +198,7 @@ MonoBehaviour:
   jumpForce: 20
   Rigidbody: {fileID: 5159568041441559702}
   animator: {fileID: 5937880061013407460}
+  leapSound: {fileID: 0}
 --- !u!114 &1851105403871373995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,5 +477,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0

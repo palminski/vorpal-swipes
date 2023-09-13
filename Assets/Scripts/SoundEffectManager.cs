@@ -12,7 +12,6 @@ public class SoundEffectManager : MonoBehaviour
     }
 
     public void playEffect(AudioClip audioClip) {
-        Debug.Log("Running");
         audioSource.PlayOneShot(audioClip);
     }
 }
