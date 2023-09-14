@@ -16,6 +16,9 @@ public class UnlockWithCoins : MonoBehaviour
     
     private TextMeshProUGUI lockText;
 
+    [SerializeField]
+    private bool isPermanent = true;
+
     public string collectableStringKey = "default";
 
     [SerializeField]
@@ -61,7 +64,7 @@ public class UnlockWithCoins : MonoBehaviour
         {
             if (BreakingNoise) ControllerScript.Controller.PlaySound(BreakingNoise);
             ControllerScript.Controller.addCoins(-unlockCost);
-            ControllerScript.Controller.addCollectableItem(collectableStringKey);
+            if (isPermanent) ControllerScript.Controller.addCollectableItem(collectableStringKey);
             GameObject Rubble = PoolManager.PullFromPool("Rubble", transform.position, Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),Random.Range(0f,360f)));
             if (Rubble) Rubble.GetComponent<Rubble>().SetAttributes(BrokenPieceSprite, Color.white, new Vector2 (Random.Range(0f,360f),Random.Range(0f,360f)));
             GameObject Rubble2 = PoolManager.PullFromPool("Rubble", transform.position, Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),Random.Range(0f,360f)));
