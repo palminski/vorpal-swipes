@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 still = new Vector2(0, 0);
     private int wallLayerMask;
 
-    void Start()
+    void Awake()
     {
         collisionBox = GetComponent<Collider2D>();
         wallLayerMask = LayerMask.GetMask("Walls");
