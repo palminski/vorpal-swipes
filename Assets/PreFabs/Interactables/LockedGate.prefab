@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -11
+  m_SortingOrder: -8
   m_Sprite: {fileID: 21300000, guid: 1ea7262ec67a19941ba6790e247037ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -178,7 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca6d1360a78dd94c885e8f4e983d256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockCost: 5000
+  unlockCost: 2000
+  isPermanent: 1
   collectableStringKey: CoinGate1
   BrokenPieceSprite: {fileID: 21300000, guid: 1ea7262ec67a19941ba6790e247037ac, type: 3}
   BreakingNoise: {fileID: 8300000, guid: f56c9471ab84148459da45711aabfd6f, type: 3}
@@ -332,7 +333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5000
+  m_text: 2000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd59b5e2162ed9d45844b65c3686ffab, type: 2}
   m_sharedMaterial: {fileID: 6527875024014731698, guid: dd59b5e2162ed9d45844b65c3686ffab, type: 2}
@@ -473,7 +474,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -11
+  m_SortingOrder: -8
   m_Sprite: {fileID: 21300000, guid: 1ea7262ec67a19941ba6790e247037ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -557,7 +558,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -11
+  m_SortingOrder: -8
   m_Sprite: {fileID: 21300000, guid: 1ea7262ec67a19941ba6790e247037ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

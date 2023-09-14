@@ -106,6 +106,7 @@ public class ControllerScript : MonoBehaviour
 
     public void GameOver()
     {
+        if (Score >= 50000 && !CollectedItems.Contains("VetranProof")) addCollectableItem("VetranProof");
         SaveData();
         UpdateHighScores(Score);
         StaticVars.UpdateLastScore(Score);
