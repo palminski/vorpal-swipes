@@ -14155,7 +14155,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 533.4}
-  m_SizeDelta: {x: 1202.4, y: 697.04}
+  m_SizeDelta: {x: 1237.67, y: 693.12}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &930363032
 MonoBehaviour:
@@ -14201,14 +14201,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Swipe to dash or turn 90 degrees
+  m_text: 'Swipe anywhere to dash
 
 
-    Tap to shift your color
+    You can dash in any direction but backwards
 
 
-    Ascend,
-    but stay on the screen'
+    Tap
+    to shift your color
+
+
+    Ascend, but stay on the screen'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd59b5e2162ed9d45844b65c3686ffab, type: 2}
   m_sharedMaterial: {fileID: 6527875024014731698, guid: dd59b5e2162ed9d45844b65c3686ffab, type: 2}
@@ -14235,8 +14238,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 92.56
-  m_fontSizeBase: 92.56
+  m_fontSize: 70.77
+  m_fontSizeBase: 70.77
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
