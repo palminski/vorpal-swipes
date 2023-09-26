@@ -26678,6 +26678,10 @@ PrefabInstance:
       value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: sinkSpeedIncrease
+      value: 0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: Levels.Array.data[5]
       value: 
       objectReference: {fileID: 4084900852860778021, guid: bb29f6784e62bd441978f4d996c22945, type: 3}

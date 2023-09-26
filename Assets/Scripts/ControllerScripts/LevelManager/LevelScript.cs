@@ -50,7 +50,7 @@ public class LevelScript : MonoBehaviour
     {
         //add points and increase speed
         ControllerScript.Controller.IncreaseScore(1000);
-        ControllerScript.Controller.UpdateSinkSpeed(0.004f);
+        ControllerScript.Controller.BumpSinkSpeed();
 
         Destroy(gameObject);
         followingLevel.SpawnLevel();
