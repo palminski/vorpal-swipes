@@ -160,6 +160,18 @@ public class ControllerScript : MonoBehaviour
             SinkSpeed = maxSinkSpeed;
         }
     }
+
+    public void BumpSinkSpeed() {
+        if (SinkSpeed < maxSinkSpeed)
+        {
+            //for now it will not scroll until the sink speed is initially set
+            if (SinkSpeed != 0) SinkSpeed += sinkSpeedIncrease;
+        }
+        else
+        {
+            SinkSpeed = maxSinkSpeed;
+        }
+    }
     public void StartGame()
     {
         SinkSpeed = startingSinkSpeed;
