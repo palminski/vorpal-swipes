@@ -26662,6 +26662,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: lerpEase
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: mainMenu
       value: 
       objectReference: {fileID: 2071680125}
@@ -26817,6 +26821,10 @@ PrefabInstance:
       propertyPath: Levels.Array.data[38]
       value: 
       objectReference: {fileID: 4084900852860778021, guid: 395221312cf8b1c48a9ed65d8bd21f07, type: 3}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: playerMaxHeightAllowed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7692953055034059216, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: m_Name
       value: Controller
