@@ -111,7 +111,11 @@ public class ControllerScript : MonoBehaviour
         {
             SinkSpeed = maxSinkSpeed;
         }
-        if (player)
+        if (finalSinkSpeed < SinkSpeed && SinkSpeed > 0)
+            {
+                finalSinkSpeed = SinkSpeed;
+            }
+        if (player && SinkSpeed > 0)
         {
             if (player.transform.position.y > playerMaxHeightAllowed)
             {
@@ -121,12 +125,7 @@ public class ControllerScript : MonoBehaviour
             {
                 playerAboveMaxPoint = false;
             }
-
-            //Check to make sure final sink speed is at least sink speed
-            if (finalSinkSpeed < SinkSpeed && SinkSpeed > 0)
-            {
-                finalSinkSpeed = SinkSpeed;
-            }
+            
 
             //if player is approaching the top of the screen we need to start adjusting out final sink speed to increase
             if (playerAboveMaxPoint)
@@ -144,7 +143,7 @@ public class ControllerScript : MonoBehaviour
             }
             else
             {
-                finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed, 0.03f);
+                finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed, lerpEase);
             }
         }
 
