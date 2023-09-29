@@ -21,7 +21,7 @@ public class Bone : MonoBehaviour
 
             gameObject.transform.Rotate(0, 0, rotationSpeed);
 
-            if (raycast.collider.CompareTag("Player")) {
+            if (raycast.collider.CompareTag("HitRange")) {
                 GameObject spawnedBone = Instantiate(fallingBone, transform.position, transform.rotation);
                 spawnedBone.GetComponent<SpriteRenderer>().color = spriteRenderer.color;
                 Object.Destroy(this.gameObject);

@@ -51,7 +51,7 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("HitRange"))
         {
             if (audioClip) ControllerScript.Controller.PlaySound(audioClip);
             Object.Destroy(this.gameObject);
