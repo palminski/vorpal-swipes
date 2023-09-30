@@ -24,7 +24,10 @@ public class ControllerScript : MonoBehaviour
     [SerializeField, Range(0, 0.5f)]
     private float maxSinkSpeed;
 
-    [SerializeField, Range(0, 20)]
+    [SerializeField, Range(0, 10)]
+    private float startLerpHeight;
+
+    [SerializeField, Range(0, 10)]
     private float playerMaxHeightAllowed;
 
     [SerializeField, Range(0, 1)]
@@ -49,6 +52,7 @@ public class ControllerScript : MonoBehaviour
     public int CollectedCoins { get; private set; }
 
     public bool playerAboveMaxPoint { get; private set; }
+    private bool playerAboveLerpheight;
 
 
     public GameObject[] Levels;
@@ -125,6 +129,15 @@ public class ControllerScript : MonoBehaviour
             {
                 playerAboveMaxPoint = false;
             }
+
+            if (player.transform.position.y > startLerpHeight)
+            {
+                playerAboveLerpheight = true;
+            }
+            else
+            {
+                playerAboveLerpheight = false;
+            }
             
 
             //if player is approaching the top of the screen we need to start adjusting out final sink speed to increase
@@ -141,9 +154,21 @@ public class ControllerScript : MonoBehaviour
                     
                 }
             }
+            else if (playerAboveLerpheight) {
+                if (playerRB.velocity.y > 0.5)
+                {
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y / 2 * Time.fixedDeltaTime, lerpEase);
+                    
+                }
+                else
+                {
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed, lerpEase);
+                    
+                }
+            }
             else
             {
-                finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed, lerpEase);
+                finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed, lerpEase * 1.5f);
             }
         }
 
