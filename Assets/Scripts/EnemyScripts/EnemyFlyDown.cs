@@ -34,7 +34,7 @@ public class EnemyFlyDown : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        startingScale = transform.localScale;
+        startingScale = transform.lossyScale;
         rigidBody = GetComponent<Rigidbody2D>();
 
 
