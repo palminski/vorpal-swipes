@@ -18,12 +18,23 @@ public class LevelScript : MonoBehaviour
     
     private Transform spawnPoint;
 
+    [SerializeField]
+    private bool canMirror = true;
+
    
 
 
     void Awake()
     {
         spawnPoint = transform.Find("SpawnPoint");
+
+        if (canMirror) {
+            int randomInt = Random.Range(0,2);
+            if (randomInt == 0) { 
+                transform.localScale = new Vector3(-1,1,1);
+            }
+        }
+        
         
         tilemap.CompressBounds();
         

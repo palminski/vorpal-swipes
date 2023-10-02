@@ -1273,6 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1401804200}
+  canMirror: 0
 --- !u!1 &498055966
 GameObject:
   m_ObjectHideFlags: 0
@@ -14840,37 +14841,6 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2918502054369813868, guid: dabb4e27783823d4483497bc05d955c5, type: 3}
   m_PrefabInstance: {fileID: 211680065}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1178395939
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1178395940}
-  m_Layer: 0
-  m_Name: Headers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1178395940
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1178395939}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.167858, y: 4.9133396, z: -0.03640235}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1183823420 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5712294714883901009, guid: 7110b4690339ded4eb9c5d81daca829c, type: 3}
@@ -26662,6 +26632,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: lerpEase
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: mainMenu
       value: 
       objectReference: {fileID: 2071680125}
@@ -26673,6 +26647,10 @@ PrefabInstance:
       propertyPath: highScoreTable
       value: 
       objectReference: {fileID: 1183823420}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: startLerpHeight
+      value: 2.39
+      objectReference: {fileID: 0}
     - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: Levels.Array.size
       value: 39
@@ -26817,6 +26795,10 @@ PrefabInstance:
       propertyPath: Levels.Array.data[38]
       value: 
       objectReference: {fileID: 4084900852860778021, guid: 395221312cf8b1c48a9ed65d8bd21f07, type: 3}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: playerMaxHeightAllowed
+      value: 4.37
+      objectReference: {fileID: 0}
     - target: {fileID: 7692953055034059216, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: m_Name
       value: Controller
@@ -27398,7 +27380,9 @@ SceneRoots:
   - {fileID: 2014248605}
   - {fileID: 198380925}
   - {fileID: 7225643254524437365}
+
   - {fileID: 1178395940}
+
   - {fileID: 690224403}
   - {fileID: 1085555670}
   - {fileID: 1351959088}

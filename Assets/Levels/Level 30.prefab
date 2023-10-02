@@ -11356,6 +11356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 8904747508706572020}
+  canMirror: 0
 --- !u!114 &7027538945099829906
 MonoBehaviour:
   m_ObjectHideFlags: 0

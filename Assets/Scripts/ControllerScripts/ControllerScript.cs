@@ -24,6 +24,17 @@ public class ControllerScript : MonoBehaviour
     [SerializeField, Range(0, 0.5f)]
     private float maxSinkSpeed;
 
+    [SerializeField, Range(0, 10)]
+    private float startLerpHeight;
+
+    [SerializeField, Range(0, 10)]
+    private float playerMaxHeightAllowed;
+
+    [SerializeField, Range(0, 1)]
+    private float lerpEase = 0.1f;
+
+
+
     [SerializeField]
     private Animator transition;
 
@@ -34,10 +45,14 @@ public class ControllerScript : MonoBehaviour
     //Private Variables to be checked for elsewhere
     public int Score { get; private set; }
     public float SinkSpeed { get; private set; }
+    public float finalSinkSpeed { get; private set; }
 
     public HashSet<string> CollectedItems { get; private set; }
 
     public int CollectedCoins { get; private set; }
+
+    public bool playerAboveMaxPoint { get; private set; }
+    private bool playerAboveLerpheight;
 
 
     public GameObject[] Levels;
@@ -45,6 +60,8 @@ public class ControllerScript : MonoBehaviour
     private GameObject pauseMenu;
 
     GameObject player;
+
+    private Rigidbody2D playerRB;
 
 
     [System.Serializable]
@@ -65,11 +82,12 @@ public class ControllerScript : MonoBehaviour
         Score = 0;
         SinkSpeed = 0;
         player = GameObject.FindWithTag("Player");
+        if (player) playerRB = player.GetComponent<Rigidbody2D>();
         pauseMenu = GameObject.FindWithTag("PauseMenu");
 
         soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffectManager");
         if (soundEffectManager) SFXManager = soundEffectManager.GetComponent<SoundEffectManager>();
-        
+
 
         //default collection
         Collection collection = new Collection { collectedItems = new List<string>(), collectedCoins = 0 };
@@ -93,15 +111,69 @@ public class ControllerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (SinkSpeed < maxSinkSpeed)
-        {
-            //for now it will not scroll until the sink speed is initially set
-            //if (SinkSpeed != 0) UpdateSinkSpeed(sinkSpeedIncrease);
-        }
-        else
+        if (SinkSpeed > maxSinkSpeed)
         {
             SinkSpeed = maxSinkSpeed;
         }
+        if (finalSinkSpeed < SinkSpeed && SinkSpeed > 0)
+            {
+                finalSinkSpeed = SinkSpeed;
+            }
+        if (player && SinkSpeed > 0)
+        {
+            if (player.transform.position.y > playerMaxHeightAllowed)
+            {
+                playerAboveMaxPoint = true;
+            }
+            else
+            {
+                playerAboveMaxPoint = false;
+            }
+
+            if (player.transform.position.y > startLerpHeight)
+            {
+                playerAboveLerpheight = true;
+            }
+            else
+            {
+                playerAboveLerpheight = false;
+            }
+            
+
+            //if player is approaching the top of the screen we need to start adjusting out final sink speed to increase
+            if (playerAboveMaxPoint)
+            {
+                if (playerRB.velocity.y > 0.5)
+                {
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y * Time.fixedDeltaTime, lerpEase);
+                    
+                }
+                else
+                {
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed, lerpEase);
+                    
+                }
+            }
+            else if (playerAboveLerpheight) {
+                if (playerRB.velocity.y > 0.5)
+                {
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y / 2 * Time.fixedDeltaTime, lerpEase);
+                    
+                }
+                else
+                {
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed, lerpEase);
+                    
+                }
+            }
+            else
+            {
+                finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed, lerpEase * 1.5f);
+            }
+        }
+
+
+
     }
 
     public void GameOver()
@@ -111,7 +183,7 @@ public class ControllerScript : MonoBehaviour
         UpdateHighScores(Score);
         StaticVars.UpdateLastScore(Score);
         LoadNextLevel("GameOverScreen");
-        
+
         if (player)
         {
             player.GetComponent<PlayerDeath>().KillPlayer();
@@ -139,10 +211,6 @@ public class ControllerScript : MonoBehaviour
     public void debugFunction()
     {
 
-        foreach (string Item in CollectedItems) {
-            Debug.Log(Item);
-        }
-        
         CollectedItems.Clear();
         addCoins(9999);
         SaveData();
@@ -161,7 +229,10 @@ public class ControllerScript : MonoBehaviour
         }
     }
 
-    public void BumpSinkSpeed() {
+
+    public void BumpSinkSpeed()
+    {
+
         if (SinkSpeed < maxSinkSpeed)
         {
             //for now it will not scroll until the sink speed is initially set
@@ -191,9 +262,6 @@ public class ControllerScript : MonoBehaviour
             if (pauseMenu)
             {
                 pauseMenu.SetActive(true);
-            }
-            else {
-                Debug.Log("No Pause Menu");
             }
         }
     }
@@ -235,7 +303,8 @@ public class ControllerScript : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void PlaySound (AudioClip audioClip) {
+    public void PlaySound(AudioClip audioClip)
+    {
         if (SFXManager && PlayerPrefs.GetInt("allowSFX", 1) != 0) SFXManager.playEffect(audioClip);
     }
 }

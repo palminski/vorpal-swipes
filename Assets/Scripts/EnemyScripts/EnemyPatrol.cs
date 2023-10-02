@@ -22,20 +22,25 @@ public class EnemyPatrol : MonoBehaviour
 
     private bool still = false;
 
+
     public Animator animator;
 
     private Vector3 startingScale;
+
+    private float startingSign;
     // Start is called before the first frame update
     void Start()
     {
-        animator  = GetComponent<Animator>();
-        startingScale = transform.localScale;
+        startingSign = Mathf.Sign(transform.lossyScale.x);
+        animator = GetComponent<Animator>();
+        startingScale = transform.lossyScale;
         rigidBody = GetComponent<Rigidbody2D>();
 
         if (rightBound == 0 && leftBound == 0) still = true;
 
-        leftTarget = gameObject.transform.position.x + leftBound;
-        rightTarget = gameObject.transform.position.x + rightBound;
+        leftTarget = gameObject.transform.position.x + leftBound * startingSign;
+        rightTarget = gameObject.transform.position.x + rightBound * startingSign;
+        // print(leftTarget + " <=-=> " + rightTarget);
 
         currentTarget = rightTarget;
     }
@@ -43,41 +48,62 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        transform.localScale = Vector3.Scale(startingScale, new Vector3(Mathf.Sign(rigidBody.velocity.x),1,1));
+
+        transform.localScale = Vector3.Scale(startingScale, new Vector3(Mathf.Sign(rigidBody.velocity.x), 1, 1));
 
         if (!still)
         {
             //determine velocity based on current target x coord
             if (currentTarget == rightTarget)
             {
-                rigidBody.velocity = new Vector2(speed, 0);
+                rigidBody.velocity = new Vector2(speed * startingSign, 0);
             }
             else
             {
-                rigidBody.velocity = new Vector2(-speed, 0);
+                rigidBody.velocity = new Vector2(-speed * startingSign, 0);
             }
 
-            if (transform.position.x >= rightTarget && currentTarget == rightTarget)
+            if (startingSign == 1)
             {
-                if (HasTriggerParam("Turn")) animator.SetTrigger("Turn");
-                currentTarget = leftTarget;
+                if (transform.position.x >= rightTarget && currentTarget == rightTarget)
+                {
+                    if (HasTriggerParam("Turn")) animator.SetTrigger("Turn");
+                    currentTarget = leftTarget;
+                }
+                if (transform.position.x <= leftTarget && currentTarget == leftTarget)
+                {
+                    currentTarget = rightTarget;
+                    if (HasTriggerParam("Turn")) animator.SetTrigger("Turn");
+                }
             }
-            if (transform.position.x <= leftTarget && currentTarget == leftTarget)
+            else
             {
-                currentTarget = rightTarget;
-                if (HasTriggerParam("Turn")) animator.SetTrigger("Turn");
+                if (transform.position.x <= rightTarget && currentTarget == rightTarget)
+                {
+                    if (HasTriggerParam("Turn")) animator.SetTrigger("Turn");
+                    currentTarget = leftTarget;
+                }
+                if (transform.position.x >= leftTarget && currentTarget == leftTarget)
+                {
+                    currentTarget = rightTarget;
+                    if (HasTriggerParam("Turn")) animator.SetTrigger("Turn");
+                }
             }
+
+
         }
 
     }
 
-    private bool HasTriggerParam(string paramName) {
+    private bool HasTriggerParam(string paramName)
+    {
 
         AnimatorControllerParameter[] parameters = animator.parameters;
 
-        foreach(AnimatorControllerParameter parameter in parameters) {
-            if (parameter.name == paramName && parameter.type == AnimatorControllerParameterType.Trigger) {
+        foreach (AnimatorControllerParameter parameter in parameters)
+        {
+            if (parameter.name == paramName && parameter.type == AnimatorControllerParameterType.Trigger)
+            {
                 return true;
             }
         }
@@ -87,8 +113,12 @@ public class EnemyPatrol : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(new Vector3(gameObject.transform.position.x + leftBound, gameObject.transform.position.y, 0), 0.5f);
-        Gizmos.DrawWireSphere(new Vector3(gameObject.transform.position.x + rightBound, gameObject.transform.position.y, 0), 0.5f);
-        Gizmos.DrawLine(new Vector3(gameObject.transform.position.x + leftBound, gameObject.transform.position.y, 0), new Vector3(gameObject.transform.position.x + rightBound, gameObject.transform.position.y, 0));
+        // Gizmos.DrawWireSphere(new Vector3(leftTarget, gameObject.transform.position.y, 0), 0.5f);
+        // Gizmos.DrawWireSphere(new Vector3(rightTarget, gameObject.transform.position.y, 0), 0.5f);
+        // Gizmos.DrawLine(new Vector3(leftTarget, gameObject.transform.position.y, 0), new Vector3(rightTarget, gameObject.transform.position.y, 0));
+
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x + rightBound, gameObject.transform.position.y, 0), 0.5f);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x + leftBound, gameObject.transform.position.y, 0), 0.5f);
+        Gizmos.DrawLine(new Vector3(transform.position.x + leftBound, gameObject.transform.position.y, 0), new Vector3(transform.position.x + rightBound, gameObject.transform.position.y, 0));
     }
 }
