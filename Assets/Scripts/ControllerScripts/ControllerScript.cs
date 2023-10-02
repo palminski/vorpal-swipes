@@ -229,8 +229,10 @@ public class ControllerScript : MonoBehaviour
         }
     }
 
+
     public void BumpSinkSpeed()
     {
+
         if (SinkSpeed < maxSinkSpeed)
         {
             //for now it will not scroll until the sink speed is initially set
