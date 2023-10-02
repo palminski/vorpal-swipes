@@ -258,8 +258,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/willi/OneDrive/Desktop/Keystore/user.keystore
-  AndroidKeyaliasName: temp
+  AndroidKeystoreName: '{inproject}: user.keystore'
+  AndroidKeyaliasName: vorpal game app
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
