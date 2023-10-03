@@ -18,10 +18,10 @@ public class ControllerScript : MonoBehaviour
     [SerializeField]
     private float startingSinkSpeed = 0.5f;
 
-    [SerializeField, Range(0, 0.1f)]
+    [SerializeField]
     private float sinkSpeedIncrease;
 
-    [SerializeField, Range(0, 0.5f)]
+    [SerializeField]
     private float maxSinkSpeed;
 
     [SerializeField, Range(0, 10)]
@@ -145,7 +145,7 @@ public class ControllerScript : MonoBehaviour
             {
                 if (playerRB.velocity.y > 0.5)
                 {
-                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y * Time.fixedDeltaTime, lerpEase);
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y, lerpEase);
                     
                 }
                 else
@@ -157,7 +157,7 @@ public class ControllerScript : MonoBehaviour
             else if (playerAboveLerpheight) {
                 if (playerRB.velocity.y > 0.5)
                 {
-                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y / 2 * Time.fixedDeltaTime, lerpEase);
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y / 2, lerpEase);
                     
                 }
                 else

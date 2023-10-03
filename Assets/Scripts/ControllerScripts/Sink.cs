@@ -7,10 +7,11 @@ public class Sink : MonoBehaviour
 
 
 
-    private void FixedUpdate()
+    private void Update()
     {
 
-        gameObject.transform.position -= new Vector3(0, ControllerScript.Controller.finalSinkSpeed, 0);
-
+        gameObject.transform.position -= new Vector3(0, ControllerScript.Controller.finalSinkSpeed * Time.deltaTime, 0);
+        
+    
     }
 }

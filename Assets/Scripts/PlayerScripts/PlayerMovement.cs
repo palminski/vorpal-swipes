@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Rigidbody.velocity == still)
         {
+            Rigidbody.velocity = new Vector2(0, 0);
             animator.ResetTrigger("Up");
             animator.ResetTrigger("Down");
             animator.ResetTrigger("Right");
@@ -71,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (Rigidbody.velocity.normalized * -1 != direction)
         {
             
-            
+            Physics2D.SyncTransforms();
 
             RaycastHit2D raycast = Physics2D.Raycast(transform.position, direction, collisionBox.bounds.extents.y + 0.1f, wallLayerMask);
             if (!raycast || animator.GetBool("Moving"))
