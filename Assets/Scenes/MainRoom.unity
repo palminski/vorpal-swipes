@@ -26644,6 +26644,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1689596806}
     - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: maxSinkSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: highScoreTable
       value: 
       objectReference: {fileID: 1183823420}
@@ -26657,7 +26661,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: sinkSpeedIncrease
-      value: 0.006
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
+      propertyPath: startingSinkSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6015119621926053006, guid: 1c9ecfb1385edbf43b39db7b99aecbd6, type: 3}
       propertyPath: Levels.Array.data[5]

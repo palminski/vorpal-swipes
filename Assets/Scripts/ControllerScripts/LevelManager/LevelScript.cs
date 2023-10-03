@@ -53,7 +53,7 @@ public class LevelScript : MonoBehaviour
     public void SpawnLevel()
     {
         
-        Vector3 spawnLocation = new Vector3(0, spawnPoint.position.y, 0);
+        Vector3 spawnLocation = new Vector3(0, spawnPoint.position.y - ControllerScript.Controller.finalSinkSpeed * Time.deltaTime, 0);
         followingLevel = Instantiate(ControllerScript.Controller.Levels[Random.Range(0, ControllerScript.Controller.Levels.Length)], spawnLocation, transform.rotation).GetComponent<LevelScript>();
     }
 
@@ -65,5 +65,9 @@ public class LevelScript : MonoBehaviour
 
         Destroy(gameObject);
         followingLevel.SpawnLevel();
+
+        
+
+        
     }
 }
