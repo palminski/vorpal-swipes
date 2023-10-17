@@ -1099,6 +1099,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 483502401751972743, guid: 516cc609e85b2064e8cadf31c7430f32, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1851105403871373995, guid: 516cc609e85b2064e8cadf31c7430f32, type: 3}
       propertyPath: colorA.r
       value: 0.22821665
@@ -1468,7 +1472,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.05
+  m_Intensity: 0.15
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -2272,6 +2276,9 @@ MonoBehaviour:
   startingSinkSpeed: 0.01
   sinkSpeedIncrease: 0.0001
   maxSinkSpeed: 0.17
+  startLerpHeight: 0
+  playerMaxHeightAllowed: 0
+  lerpEase: 0.1
   transition: {fileID: 1268515227}
   transitionTime: 0.4
   Levels:
