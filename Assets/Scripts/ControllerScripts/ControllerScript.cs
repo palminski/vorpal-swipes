@@ -145,7 +145,7 @@ public class ControllerScript : MonoBehaviour
             {
                 if (playerRB.velocity.y > 0.5)
                 {
-                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y, lerpEase);
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, playerRB.velocity.y, lerpEase);
                     
                 }
                 else
@@ -157,7 +157,7 @@ public class ControllerScript : MonoBehaviour
             else if (playerAboveLerpheight) {
                 if (playerRB.velocity.y > 0.5)
                 {
-                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y / 2, lerpEase);
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, playerRB.velocity.y / 2, lerpEase);
                     
                 }
                 else
