@@ -143,9 +143,9 @@ public class ControllerScript : MonoBehaviour
             //if player is approaching the top of the screen we need to start adjusting out final sink speed to increase
             if (playerAboveMaxPoint)
             {
-                if (playerRB.velocity.y > 0.5)
+                if (playerRB.linearVelocity.y > 0.5)
                 {
-                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y, lerpEase);
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.linearVelocity.y, lerpEase);
                     
                 }
                 else
@@ -155,9 +155,9 @@ public class ControllerScript : MonoBehaviour
                 }
             }
             else if (playerAboveLerpheight) {
-                if (playerRB.velocity.y > 0.5)
+                if (playerRB.linearVelocity.y > 0.5)
                 {
-                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.velocity.y / 2, lerpEase);
+                    finalSinkSpeed = Mathf.Lerp(finalSinkSpeed, SinkSpeed + playerRB.linearVelocity.y / 2, lerpEase);
                     
                 }
                 else

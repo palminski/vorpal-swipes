@@ -60,7 +60,7 @@ public class UnlockWithCoins : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Breaker") && playerRB.velocity != new Vector2(0,0))
+        if (other.gameObject.CompareTag("Breaker") && playerRB.linearVelocity != new Vector2(0,0))
         {
             if (BreakingNoise) ControllerScript.Controller.PlaySound(BreakingNoise);
             ControllerScript.Controller.addCoins(-unlockCost);

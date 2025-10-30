@@ -30,9 +30,9 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if (Rigidbody.velocity == still)
+        if (Rigidbody.linearVelocity == still)
         {
-            Rigidbody.velocity = new Vector2(0, 0);
+            Rigidbody.linearVelocity = new Vector2(0, 0);
             animator.ResetTrigger("Up");
             animator.ResetTrigger("Down");
             animator.ResetTrigger("Right");
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
 
-        if (Rigidbody.velocity.normalized * -1 != direction)
+        if (Rigidbody.linearVelocity.normalized * -1 != direction)
         {
             
             Physics2D.SyncTransforms();
@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
                 }
             }
-            Rigidbody.velocity = new Vector2(direction.x * jumpForce, direction.y * jumpForce);
+            Rigidbody.linearVelocity = new Vector2(direction.x * jumpForce, direction.y * jumpForce);
             lastDirection = direction;
             if (leapSound) ControllerScript.Controller.PlaySound(leapSound);
         }

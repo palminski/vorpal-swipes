@@ -17,7 +17,7 @@ public class CreateAfterImage : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (rb.velocity != new Vector2(0,0)) {
+        if (rb.linearVelocity != new Vector2(0,0)) {
             if (countdown <= 0) {
                 countdown = 1;
                 PoolManager.PullFromPool("AfterImage",transform.position,transform.rotation, transform.localScale);

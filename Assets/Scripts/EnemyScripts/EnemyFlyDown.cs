@@ -47,17 +47,17 @@ public class EnemyFlyDown : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float preUpdatedXVelocity = rigidBody.velocity.x;
-        transform.localScale = Vector3.Scale(startingScale, new Vector3(Mathf.Sign(rigidBody.velocity.x), 1, 1));
+        float preUpdatedXVelocity = rigidBody.linearVelocity.x;
+        transform.localScale = Vector3.Scale(startingScale, new Vector3(Mathf.Sign(rigidBody.linearVelocity.x), 1, 1));
 
         float easedX = Mathf.SmoothStep(leftTarget, rightTarget, Mathf.PingPong(Time.time * easeAmount, 1));
         Vector2 targetPosition = new Vector2(easedX, transform.position.y);
         Vector2 velocity = hSpeed * (targetPosition - rigidBody.position) / Time.fixedDeltaTime;
-        if (ControllerScript.Controller.SinkSpeed != 0) rigidBody.velocity = new Vector2(velocity.x, -vSpeed);
+        if (ControllerScript.Controller.SinkSpeed != 0) rigidBody.linearVelocity = new Vector2(velocity.x, -vSpeed);
         
 
         //turn if velocity swapped
-        if (Mathf.Sign(preUpdatedXVelocity) != Mathf.Sign(rigidBody.velocity.x) && HasTriggerParam("Turn")) animator.SetTrigger("Turn");
+        if (Mathf.Sign(preUpdatedXVelocity) != Mathf.Sign(rigidBody.linearVelocity.x) && HasTriggerParam("Turn")) animator.SetTrigger("Turn");
 
         //Y should always decrease by set ammount
         // transform.position -= new Vector3(0,vSpeed,0);

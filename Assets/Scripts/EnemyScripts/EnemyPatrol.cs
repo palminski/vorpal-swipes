@@ -49,18 +49,18 @@ public class EnemyPatrol : MonoBehaviour
     void FixedUpdate()
     {
 
-        transform.localScale = Vector3.Scale(startingScale, new Vector3(Mathf.Sign(rigidBody.velocity.x), 1, 1));
+        transform.localScale = Vector3.Scale(startingScale, new Vector3(Mathf.Sign(rigidBody.linearVelocity.x), 1, 1));
 
         if (!still)
         {
             //determine velocity based on current target x coord
             if (currentTarget == rightTarget)
             {
-                rigidBody.velocity = new Vector2(speed * startingSign, 0);
+                rigidBody.linearVelocity = new Vector2(speed * startingSign, 0);
             }
             else
             {
-                rigidBody.velocity = new Vector2(-speed * startingSign, 0);
+                rigidBody.linearVelocity = new Vector2(-speed * startingSign, 0);
             }
 
             if (startingSign == 1)

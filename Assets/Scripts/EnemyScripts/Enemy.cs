@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour
             {
                 ControllerScript.Controller.GameOver();
             }
-            else if (playerRB.velocity != new Vector2(0, 0))
+            else if (playerRB.linearVelocity != new Vector2(0, 0))
             {
                 if (deathSound) ControllerScript.Controller.PlaySound(deathSound);
                 Object.Destroy(this.gameObject);

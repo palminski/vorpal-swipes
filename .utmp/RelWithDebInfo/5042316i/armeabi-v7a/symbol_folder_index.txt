@@ -1,0 +1,1 @@
+C:\Users\willi\Documents\projects\unity-games\vorpal-swipes\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\5042316i\obj\armeabi-v7a

@@ -1,0 +1,1 @@
+C:\Users\willi\Documents\projects\unity-games\vorpal-swipes\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\UnitySwappyWrapper.h
